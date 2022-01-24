@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Async Make Breakfast";
+}
+@{
+    var actions = ViewData["actions"] as IEnumerable<TaskActionViewModel>;
+    var actionWithAsync = ViewData["actionWithAsync"] as IEnumerable<TaskActionViewModel>;
+    var totalRunTime = actions.Last().TimeStart - actions.First().TimeStart;
+    var totalRunTimeAsync = actionWithAsync.Last().TimeStart - actionWithAsync.First().TimeStart;
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <table class="table table-bordered table-responsive">
+                <thead>
+                <tr>
+                    <th>TimeStart</th>
+                    <th>ThreadId</th>
+                    <th>Message</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in actions)
+                {
+                    <tr>
+                        <td>@item.TimeStart.ToString("HH:mm:ss")</td>
+                        <td>@item.ThreadId</td>
+                        <td>@item.Message</td>
+                    </tr>
+                }
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th colspan="3">
+                        @totalRunTime
+                    </th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="col-lg-6">
+            <table class="table table-bordered table-responsive">
+                <thead>
+                <tr>
+                    <th>TimeStart</th>
+                    <th>ThreadId</th>
+                    <th>Message</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in actionWithAsync)
+                {
+                    <tr>
+                        <td>@item.TimeStart.ToString("HH:mm:ss")</td>
+                        <td>@item.ThreadId</td>
+                        <td>@item.Message</td>
+                    </tr>
+                }
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th colspan="3">
+                        @totalRunTimeAsync
+                    </th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
