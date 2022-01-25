@@ -2,7 +2,7 @@
 
 namespace HackerRank.Solutions
 {
-    public class BalanceBrackets
+    public class BalanceBracketsSolution
     {
         public bool IsBalance(string str)
         {
@@ -25,7 +25,7 @@ namespace HackerRank.Solutions
                 stack.Push(character);
             }
 
-            return true;
+            return stack.Count == 0;
         }
     }
 }
