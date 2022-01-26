@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AsyncBreakfastMVC.Models;
@@ -7,78 +8,78 @@ using AsyncBreakfastMVC.Tasks.Models;
 
 namespace AsyncBreakfastMVC.Tasks
 {
-    public class Breakfast : IBreakfast
+    public class BreakfastRecipe : IBreakfastRecipe
     {
-        public IEnumerable<TaskActionViewModel> MakeBreakFast()
+        public Breakfast MakeBreakfast()
         {
-            var actions = new List<TaskActionViewModel>();
-            PourCoffee(actions);
-            actions.Add(new TaskActionViewModel
+            var breakfast = new Breakfast();
+            breakfast.Coffee = PourCoffee(breakfast.Actions);
+            breakfast.Actions.Add(new TaskActionViewModel
             {
                 TimeStart = DateTime.Now,
                 Message = "Coffee is ready",
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
             });
 
-            FryEggs(2, actions);
-            actions.Add(new TaskActionViewModel
+            breakfast.Egg = FryEggs(2, breakfast.Actions);
+            breakfast.Actions.Add(new TaskActionViewModel
             {
                 TimeStart = DateTime.Now,
                 Message = "Eggs are ready",
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
             });
 
-            FryBacon(3, actions);
-            actions.Add(new TaskActionViewModel
+            breakfast.Bacon = FryBacon(3, breakfast.Actions);
+            breakfast.Actions.Add(new TaskActionViewModel
             {
                 TimeStart = DateTime.Now,
                 Message = "Bacon is ready",
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
             });
 
-            var toast = ToastBread(2, actions);
-            
-            ApplyButter(toast, actions);
-            ApplyJam(toast, actions);
-            actions.Add(new TaskActionViewModel
+            breakfast.Toasts = ToastBread(2, breakfast.Actions);
+
+            ApplyButter(breakfast.Toasts, breakfast.Actions);
+            ApplyJam(breakfast.Toasts, breakfast.Actions);
+            breakfast.Actions.Add(new TaskActionViewModel
             {
                 TimeStart = DateTime.Now,
                 Message = "Toast is ready",
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
             });
 
-            PourOrangeJuice(actions);
-            actions.Add(new TaskActionViewModel
+            breakfast.Juice = PourOrangeJuice(breakfast.Actions);
+            breakfast.Actions.Add(new TaskActionViewModel
             {
                 TimeStart = DateTime.Now,
                 Message = "Orange Juice is ready",
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
             });
-            
-            actions.Add(new TaskActionViewModel
+
+            breakfast.Actions.Add(new TaskActionViewModel
             {
                 TimeStart = DateTime.Now,
                 Message = "Breakfast is ready",
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
             });
 
-            return actions;
+            return breakfast;
         }
 
-        public async Task<IEnumerable<TaskActionViewModel>> MakeBreakFastAsync()
+        public async Task<Breakfast> MakeBreakfastAsync()
         {
-            var actions = new List<TaskActionViewModel>();
-            PourCoffee(actions);
-            actions.Add(new TaskActionViewModel
+            var breakfast = new Breakfast();
+            breakfast.Coffee = PourCoffee(breakfast.Actions);
+            breakfast.Actions.Add(new TaskActionViewModel
             {
                 TimeStart = DateTime.Now,
                 Message = "Coffee is ready",
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
             });
-            
-            var eggsTask = FryEggsAsync(2, actions);
-            var baconTask = FryBaconAsync(3, actions);
-            var toastTask = MakeToastWithButterAndJamAsync(2, actions);
+
+            var eggsTask = FryEggsAsync(2, breakfast.Actions);
+            var baconTask = FryBaconAsync(3, breakfast.Actions);
+            var toastTask = MakeToastWithButterAndJamAsync(2, breakfast.Actions);
 
             var breakfastTasks = new List<Task> { eggsTask, baconTask, toastTask };
             while (breakfastTasks.Count > 0)
@@ -86,27 +87,30 @@ namespace AsyncBreakfastMVC.Tasks
                 var finishedTask = await Task.WhenAny(breakfastTasks);
                 if (finishedTask == eggsTask)
                 {
-                    actions.Add(new TaskActionViewModel
+                    breakfast.Egg = eggsTask.Result;
+                    breakfast.Actions.Add(new TaskActionViewModel
                     {
                         TimeStart = DateTime.Now,
                         Message = "Eggs are ready",
                         ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
                     });
                 }
-                
+
                 if (finishedTask == baconTask)
                 {
-                    actions.Add(new TaskActionViewModel
+                    breakfast.Bacon = baconTask.Result;
+                    breakfast.Actions.Add(new TaskActionViewModel
                     {
                         TimeStart = DateTime.Now,
                         Message = "Bacon is ready",
                         ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
                     });
                 }
-                
+
                 if (finishedTask == toastTask)
                 {
-                    actions.Add(new TaskActionViewModel
+                    breakfast.Toasts = toastTask.Result;
+                    breakfast.Actions.Add(new TaskActionViewModel
                     {
                         TimeStart = DateTime.Now,
                         Message = "Toast is ready",
@@ -117,70 +121,73 @@ namespace AsyncBreakfastMVC.Tasks
                 breakfastTasks.Remove(finishedTask);
             }
 
-            PourOrangeJuice(actions);
-            actions.Add(new TaskActionViewModel
+            breakfast.Juice = PourOrangeJuice(breakfast.Actions);
+            breakfast.Actions.Add(new TaskActionViewModel
             {
                 TimeStart = DateTime.Now,
                 Message = "Orange Juice is ready",
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
             });
-            
-            actions.Add(new TaskActionViewModel
+
+            breakfast.Actions.Add(new TaskActionViewModel
             {
                 TimeStart = DateTime.Now,
                 Message = "Breakfast is ready",
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
             });
 
-            return actions;
+            return breakfast;
         }
 
-        public async Task<IEnumerable<TaskActionViewModel>> MakeBreakFastMultiThreadAsync()
+        public async Task<Breakfast> MakeBreakfastMultiThreadAsync()
         {
-            var actions = new List<TaskActionViewModel>();
+            var breakfast = new Breakfast();
+            var coffeeTask = Task.Run(() => PourCoffee(breakfast.Actions));
+            var eggsTask = Task.Run(() => FryEggsAsync(2, breakfast.Actions));
+            var baconTask = Task.Run(() => FryBaconAsync(3, breakfast.Actions));
+            var toastTask = Task.Run(() => MakeToastWithButterAndJamAsync(2, breakfast.Actions));
 
-            var coffeeTask = Task.Run(() => PourCoffee(actions));
-            var eggsTask = Task.Run(() => FryEggsAsync(2, actions));
-            var baconTask = Task.Run(() => FryBaconAsync(3, actions));
-            var toastTask = Task.Run(() => MakeToastWithButterAndJamAsync(2, actions));
-
-            var breakfastTasks = new List<Task> { coffeeTask, eggsTask, baconTask, toastTask};
+            var breakfastTasks = new List<Task> { coffeeTask, eggsTask, baconTask, toastTask };
             while (breakfastTasks.Count > 0)
             {
                 var finishedTask = await Task.WhenAny(breakfastTasks);
                 if (finishedTask == coffeeTask)
                 {
-                    actions.Add(new TaskActionViewModel
+                    breakfast.Coffee = coffeeTask.Result;
+                    breakfast.Actions.Add(new TaskActionViewModel
                     {
                         TimeStart = DateTime.Now,
                         Message = "Coffee are ready",
                         ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
                     });
                 }
-                
+
                 if (finishedTask == eggsTask)
                 {
-                    actions.Add(new TaskActionViewModel
+                    breakfast.Egg = eggsTask.Result;
+                    breakfast.Actions.Add(new TaskActionViewModel
                     {
                         TimeStart = DateTime.Now,
                         Message = "Eggs are ready",
                         ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
                     });
                 }
-                
+
                 if (finishedTask == baconTask)
                 {
-                    actions.Add(new TaskActionViewModel
+                    breakfast.Bacon = baconTask.Result;
+                    breakfast.Actions.Add(new TaskActionViewModel
                     {
                         TimeStart = DateTime.Now,
                         Message = "Bacon is ready",
                         ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
                     });
                 }
-                
+
                 if (finishedTask == toastTask)
                 {
-                    actions.Add(new TaskActionViewModel
+                    breakfast.Toasts = toastTask.Result;
+                    breakfast.Actions.Add(new TaskActionViewModel
                     {
                         TimeStart = DateTime.Now,
                         Message = "Toast is ready",
@@ -191,22 +198,22 @@ namespace AsyncBreakfastMVC.Tasks
                 breakfastTasks.Remove(finishedTask);
             }
 
-            PourOrangeJuice(actions);
-            actions.Add(new TaskActionViewModel
+            breakfast.Juice = PourOrangeJuice(breakfast.Actions);
+            breakfast.Actions.Add(new TaskActionViewModel
             {
                 TimeStart = DateTime.Now,
                 Message = "Orange Juice is ready",
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
             });
-            
-            actions.Add(new TaskActionViewModel
+
+            breakfast.Actions.Add(new TaskActionViewModel
             {
                 TimeStart = DateTime.Now,
                 Message = "Breakfast is ready",
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
             });
 
-            return actions;
+            return breakfast;
         }
 
         public Juice PourOrangeJuice(List<TaskActionViewModel> actions)
@@ -220,28 +227,39 @@ namespace AsyncBreakfastMVC.Tasks
             return new Juice();
         }
 
-        public void ApplyJam(Toast toast, List<TaskActionViewModel> actions)
+        public void ApplyJam(List<Toast> toasts, List<TaskActionViewModel> actions)
         {
-            actions.Add(new TaskActionViewModel
+            if (toasts == null || !toasts.Any()) throw new ArgumentNullException(nameof(toasts), "There is no toast");
+            foreach (var toast in toasts)
             {
-                TimeStart = DateTime.Now,
-                Message = "ApplyJam: Putting jam on the toast",
-                ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
-            });
+                actions.Add(new TaskActionViewModel
+                {
+                    TimeStart = DateTime.Now,
+                    Message = "ApplyJam: Putting jam on the toast",
+                    ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
+                });
+                toast.HasJam = true;
+            }
         }
 
-        public void ApplyButter(Toast toast, List<TaskActionViewModel> actions)
+        public void ApplyButter(List<Toast> toasts, List<TaskActionViewModel> actions)
         {
-            actions.Add(new TaskActionViewModel
+            if (toasts == null || !toasts.Any()) throw new ArgumentNullException(nameof(toasts), "There is no toast");
+            foreach (var toast in toasts)
             {
-                TimeStart = DateTime.Now,
-                Message = "ApplyButter: Putting butter on the toast",
-                ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
-            });
+                actions.Add(new TaskActionViewModel
+                {
+                    TimeStart = DateTime.Now,
+                    Message = "ApplyButter: Putting butter on the toast",
+                    ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
+                });
+                toast.HasButter = true;
+            }
         }
 
-        public Toast ToastBread(int slices, List<TaskActionViewModel> actions)
+        public List<Toast> ToastBread(int slices, List<TaskActionViewModel> actions)
         {
+            var toasts = new List<Toast>();
             for (var slice = 0; slice < slices; slice++)
             {
                 actions.Add(new TaskActionViewModel
@@ -250,12 +268,13 @@ namespace AsyncBreakfastMVC.Tasks
                     Message = "ToastBread: Putting a slice of bread in the toaster",
                     ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
                 });
+                toasts.Add(new Toast());
             }
 
             actions.Add(new TaskActionViewModel
             {
                 TimeStart = DateTime.Now,
-                Message = "ToastBread: Start toasting...",
+                Message = "ToastBread: Start toasting",
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
             });
             Task.Delay(2000).Wait();
@@ -269,21 +288,22 @@ namespace AsyncBreakfastMVC.Tasks
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
             });
 
-            return new Toast();
+            return toasts;
         }
 
-        public Task<Toast> ToastBreadAsync(int slices, List<TaskActionViewModel> actions)
+        public Task<List<Toast>> ToastBreadAsync(int slices, List<TaskActionViewModel> actions)
         {
             return Task.FromResult(ToastBread(slices, actions));
         }
 
-        public async Task<Toast> MakeToastWithButterAndJamAsync(int slices, List<TaskActionViewModel> actions)
+        public async Task<List<Toast>> MakeToastWithButterAndJamAsync(int slices,
+            List<TaskActionViewModel> actions)
         {
-            var toast = await ToastBreadAsync(slices, actions);
-            ApplyButter(toast, actions);
-            ApplyJam(toast, actions);
+            var toasts = await ToastBreadAsync(slices, actions);
+            ApplyButter(toasts, actions);
+            ApplyJam(toasts, actions);
 
-            return toast;
+            return toasts;
         }
 
         public Bacon FryBacon(int slices, List<TaskActionViewModel> actions)
@@ -298,7 +318,7 @@ namespace AsyncBreakfastMVC.Tasks
             actions.Add(new TaskActionViewModel
             {
                 TimeStart = DateTime.Now,
-                Message = "FryBacon: Cooking first side of bacon...",
+                Message = "FryBacon: Cooking first side of bacon",
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
             });
             Task.Delay(3000).Wait();
@@ -315,7 +335,7 @@ namespace AsyncBreakfastMVC.Tasks
             actions.Add(new TaskActionViewModel
             {
                 TimeStart = DateTime.Now,
-                Message = "FryBacon: Cooking the second side of bacon...",
+                Message = "FryBacon: Cooking the second side of bacon",
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
             });
             Task.Delay(3000).Wait();
@@ -326,7 +346,7 @@ namespace AsyncBreakfastMVC.Tasks
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
             });
 
-            return new Bacon();
+            return new Bacon(slices);
         }
 
         public Task<Bacon> FryBaconAsync(int slices, List<TaskActionViewModel> actions)
@@ -339,7 +359,7 @@ namespace AsyncBreakfastMVC.Tasks
             actions.Add(new TaskActionViewModel
             {
                 TimeStart = DateTime.Now,
-                Message = "FryEggs: Warming the egg pan...",
+                Message = "FryEggs: Warming the egg pan",
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
             });
             Task.Delay(3000).Wait();
@@ -352,7 +372,7 @@ namespace AsyncBreakfastMVC.Tasks
             actions.Add(new TaskActionViewModel
             {
                 TimeStart = DateTime.Now,
-                Message = "FryEggs: Cooking the eggs ...",
+                Message = "FryEggs: Cooking the eggs ",
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
             });
             Task.Delay(3000).Wait();
@@ -363,7 +383,7 @@ namespace AsyncBreakfastMVC.Tasks
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
             });
 
-            return new Egg();
+            return new Egg(howMany);
         }
 
         public Task<Egg> FryEggsAsync(int howMany, List<TaskActionViewModel> actions)
