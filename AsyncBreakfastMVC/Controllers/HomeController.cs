@@ -10,12 +10,12 @@ namespace AsyncBreakfastMVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IBreakfast _breakfast;
+        private readonly IBreakfastRecipe _breakfastRecipe;
 
-        public HomeController(ILogger<HomeController> logger, IBreakfast breakfast)
+        public HomeController(ILogger<HomeController> logger, IBreakfastRecipe breakfastRecipe)
         {
             _logger = logger;
-            _breakfast = breakfast;
+            _breakfastRecipe = breakfastRecipe;
         }
 
         public IActionResult Index()
@@ -23,33 +23,31 @@ namespace AsyncBreakfastMVC.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Privacy()
+        public IActionResult Privacy()
         {
-            // take 15s
-            var actions = _breakfast.MakeBreakFast();
-            // take 15s
-            var actionsAsync = await _breakfast.MakeBreakFastAsync();
-            // total 35
             return View();
         }
 
         public async Task<IActionResult> MakeBreakfast()
         {
-            // take 15 for task one and task two
-            var taskOne = Task.Run(() => _breakfast.MakeBreakFast());
-            var taskTwo = Task.Run(() => _breakfast.MakeBreakFastAsync());
-            ViewData["actions"] = await taskOne;
-            ViewData["actionWithAsync"] = await taskTwo;
+            var taskOne = Task.Run(() => _breakfastRecipe.MakeBreakfast());
+            var taskTwo = Task.Run(() => _breakfastRecipe.MakeBreakfastAsync());
+            var breakfastOne = await taskOne;
+            var breakfastTwo= await taskTwo;
+            ViewData["actions"] = breakfastOne.Actions;
+            ViewData["actionWithAsync"] = breakfastTwo.Actions;
 
             return View();
         }
 
         public async Task<IActionResult> AsyncMakeBreakfast()
         {
-            var taskOne = Task.Run(() => _breakfast.MakeBreakFastAsync());
-            var taskTwo = Task.Run(() => _breakfast.MakeBreakFastMultiThreadAsync());
-            ViewData["actions"] = await taskOne;
-            ViewData["actionWithAsync"] = await taskTwo;
+            var taskOne = Task.Run(() => _breakfastRecipe.MakeBreakfastAsync());
+            var taskTwo = Task.Run(() => _breakfastRecipe.MakeBreakfastMultiThreadAsync());
+            var breakfastOne = await taskOne;
+            var breakfastTwo= await taskTwo;
+            ViewData["actions"] = breakfastOne.Actions;
+            ViewData["actionWithAsync"] = breakfastTwo.Actions;
 
             return View();
         }

@@ -4,14 +4,7 @@
 
 <div class="text-center">
     <h1 class="display-4">Asynchronous Programming</h1>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <a class="btn btn-block btn-primary" asp-area="" asp-controller="Home" asp-action="MakeBreakfast">Make Breakfast</a>
-            </div>
-            <div class="col-lg-12">
-                <a class="btn btn-block btn-primary" asp-area="" asp-controller="Home" asp-action="AsyncMakeBreakfast">Make Breakfast Async</a>
-            </div>
-        </div>
-    </div>
 </div>
+
+<a asp-area="" asp-controller="Home" asp-action="MakeBreakfast" class="btn btn-primary btn-block active">Make Breakfast</a>
+<a asp-area="" asp-controller="Home" asp-action="AsyncMakeBreakfast" class="btn btn-secondary btn-block active">Make Breakfast Async</a>
