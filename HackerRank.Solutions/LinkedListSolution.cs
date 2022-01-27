@@ -147,5 +147,37 @@ namespace HackerRank.Solutions
             newHead.Next = head;
             return newHead;
         }
+
+        public SinglyLinkedListNode<T> RemoveNodeByItsDataValue<T>(SinglyLinkedListNode<T> head, T value)
+        {
+            while (true)
+            {
+                if (head == null) return null;
+                if (head.Data.Equals(value))
+                {
+                    if (head.Next == null) return null;
+                    head = head.Next;
+                    continue;
+                }
+
+                var next = head.Next;
+                var prev = head;
+                while (next != null)
+                {
+                    if (next.Data.Equals(value))
+                    {
+                        next = next.Next;
+                        prev.Next = null;
+                        continue;
+                    }
+
+                    prev.Next = next;
+                    prev = next;
+                    next = next.Next;
+                }
+
+                return head;
+            }
+        }
     }
 }
