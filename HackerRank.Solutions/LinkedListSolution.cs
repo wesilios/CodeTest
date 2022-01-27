@@ -179,5 +179,12 @@ namespace HackerRank.Solutions
                 return head;
             }
         }
+
+        public void DeleteNode<T>(SinglyLinkedListNode<T> node)
+        {
+            if (node?.Next == null) return;
+            node.Data = node.Next.Data;
+            node.Next = node.Next.Next;
+        }
     }
 }
