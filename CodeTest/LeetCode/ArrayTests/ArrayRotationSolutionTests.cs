@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using HackerRank.Solutions;
+using LeetCode.Solutions;
 using Xunit;
 
-namespace CodeTest.HackerRank.ArrayTests
+namespace CodeTest.LeetCode.ArrayTests
 {
     public class ArrayRotationSolutionTests
     {

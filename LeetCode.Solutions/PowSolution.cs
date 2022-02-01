@@ -1,4 +1,4 @@
-﻿namespace HackerRank.Solutions
+﻿namespace LeetCode.Solutions
 {
     public class PowSolution
     {
