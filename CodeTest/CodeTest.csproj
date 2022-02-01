@@ -19,6 +19,7 @@
       <ProjectReference Include="..\CodeTest.Library\CodeTest.Library.csproj" />
       <ProjectReference Include="..\HackerRank.Solutions\HackerRank.Solutions.csproj" />
       <ProjectReference Include="..\HackerRank\HackerRank.csproj" />
+      <ProjectReference Include="..\LeetCode.Solutions\LeetCode.Solutions.csproj" />
       <ProjectReference Include="..\QueueUsingTwoStack\QueueUsingTwoStack.csproj" />
     </ItemGroup>
 

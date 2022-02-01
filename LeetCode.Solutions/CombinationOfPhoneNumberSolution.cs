@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace HackerRank.Solutions
+namespace LeetCode.Solutions
 {
     public class CombinationOfPhoneNumberSolution
     {

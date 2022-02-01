@@ -1,8 +1,8 @@
 ﻿using System;
-using HackerRank.Solutions;
+using LeetCode.Solutions;
 using Xunit;
 
-namespace CodeTest.HackerRank
+namespace CodeTest.LeetCode
 {
     public class PowTests
     {
