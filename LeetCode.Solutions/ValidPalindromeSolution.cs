@@ -6,9 +6,8 @@ namespace LeetCode.Solutions
     {
         public bool IsValidPalindrome(string s)
         {
-            var str = TrimSpecialCharacters(s, "");
-            str = TrimDuplicateSpacesBetweenCharacters(str, "");
-            str = TrimSpaces(str, "");
+            var str = TrimDuplicateSpacesBetweenCharacters(s, "");
+            str = TrimSpecialCharacters(str, "");
             str = str.Trim();
             str = str.ToLowerInvariant();
 
@@ -35,16 +34,6 @@ namespace LeetCode.Solutions
             if (string.IsNullOrEmpty(str)) return str;
 
             var regex = new Regex("[ ]{2,}", RegexOptions.None);
-            str = regex.Replace(str, replacement);
-
-            return str;
-        }
-
-        public string TrimSpaces(string str, string replacement = " ")
-        {
-            if (string.IsNullOrEmpty(str)) return str;
-
-            var regex = new Regex("[ ]{1,}", RegexOptions.None);
             str = regex.Replace(str, replacement);
 
             return str;
