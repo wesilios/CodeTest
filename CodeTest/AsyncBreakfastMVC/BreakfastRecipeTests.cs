@@ -3,6 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using AsyncBreakfastMVC.Models;
 using AsyncBreakfastMVC.Tasks;
+using Microsoft.Extensions.Logging;
+using Moq;
 using Xunit;
 
 namespace CodeTest.AsyncBreakfastMVC
@@ -16,7 +18,8 @@ namespace CodeTest.AsyncBreakfastMVC
             const int baconSlices = 3;
             const int toasts = 2;
 
-            var breakfastRecipe = new BreakfastRecipe();
+            var mogLogger = new Mock<ILogger<BreakfastRecipe>>();
+            var breakfastRecipe = new BreakfastRecipe(mogLogger.Object);
             var breakfast = breakfastRecipe.MakeBreakfast();
             Assert.NotNull(breakfast);
             Assert.NotNull(breakfast.Coffee);
@@ -39,7 +42,8 @@ namespace CodeTest.AsyncBreakfastMVC
             const int baconSlices = 3;
             const int toasts = 2;
 
-            var breakfastRecipe = new BreakfastRecipe();
+            var mogLogger = new Mock<ILogger<BreakfastRecipe>>();
+            var breakfastRecipe = new BreakfastRecipe(mogLogger.Object);
             var breakfast = await breakfastRecipe.MakeBreakfastAsync();
             Assert.NotNull(breakfast);
             Assert.NotNull(breakfast.Coffee);
@@ -62,7 +66,8 @@ namespace CodeTest.AsyncBreakfastMVC
             const int baconSlices = 3;
             const int toasts = 2;
 
-            var breakfastRecipe = new BreakfastRecipe();
+            var mogLogger = new Mock<ILogger<BreakfastRecipe>>();
+            var breakfastRecipe = new BreakfastRecipe(mogLogger.Object);
             var breakfast = await breakfastRecipe.MakeBreakfastMultiThreadAsync();
             Assert.NotNull(breakfast);
             Assert.NotNull(breakfast.Coffee);
@@ -81,7 +86,8 @@ namespace CodeTest.AsyncBreakfastMVC
         [Fact]
         public void PourOrangeJuiceTest()
         {
-            var breakfastRecipe = new BreakfastRecipe();
+            var mogLogger = new Mock<ILogger<BreakfastRecipe>>();
+            var breakfastRecipe = new BreakfastRecipe(mogLogger.Object);
             var actions = new List<TaskActionViewModel>();
             var juice = breakfastRecipe.PourOrangeJuice(actions);
             Assert.NotNull(juice);
@@ -91,7 +97,8 @@ namespace CodeTest.AsyncBreakfastMVC
         [Fact]
         public void PourCoffeeTest()
         {
-            var breakfastRecipe = new BreakfastRecipe();
+            var mogLogger = new Mock<ILogger<BreakfastRecipe>>();
+            var breakfastRecipe = new BreakfastRecipe(mogLogger.Object);
             var actions = new List<TaskActionViewModel>();
             var coffee = breakfastRecipe.PourCoffee(actions);
             Assert.NotNull(coffee);

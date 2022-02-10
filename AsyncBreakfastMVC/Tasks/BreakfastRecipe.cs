@@ -5,11 +5,20 @@ using System.Threading;
 using System.Threading.Tasks;
 using AsyncBreakfastMVC.Models;
 using AsyncBreakfastMVC.Tasks.Models;
+using Microsoft.Extensions.Logging;
 
 namespace AsyncBreakfastMVC.Tasks
 {
     public class BreakfastRecipe : IBreakfastRecipe
     {
+        private readonly ILogger<BreakfastRecipe> _logger;
+
+        public BreakfastRecipe(ILogger<BreakfastRecipe> logger)
+        {
+            _logger = logger;
+        }
+
+
         public Breakfast MakeBreakfast()
         {
             var breakfast = new Breakfast();
@@ -216,7 +225,7 @@ namespace AsyncBreakfastMVC.Tasks
             return breakfast;
         }
 
-        public Juice PourOrangeJuice(List<TaskActionViewModel> actions)
+        public Juice PourOrangeJuice(ICollection<TaskActionViewModel> actions)
         {
             actions.Add(new TaskActionViewModel
             {
@@ -227,7 +236,7 @@ namespace AsyncBreakfastMVC.Tasks
             return new Juice();
         }
 
-        public void ApplyJam(List<Toast> toasts, List<TaskActionViewModel> actions)
+        public void ApplyJam(ICollection<Toast> toasts, ICollection<TaskActionViewModel> actions)
         {
             if (toasts == null || !toasts.Any()) throw new ArgumentNullException(nameof(toasts), "There is no toast");
             foreach (var toast in toasts)
@@ -242,7 +251,7 @@ namespace AsyncBreakfastMVC.Tasks
             }
         }
 
-        public void ApplyButter(List<Toast> toasts, List<TaskActionViewModel> actions)
+        public void ApplyButter(ICollection<Toast> toasts, ICollection<TaskActionViewModel> actions)
         {
             if (toasts == null || !toasts.Any()) throw new ArgumentNullException(nameof(toasts), "There is no toast");
             foreach (var toast in toasts)
@@ -257,7 +266,7 @@ namespace AsyncBreakfastMVC.Tasks
             }
         }
 
-        public List<Toast> ToastBread(int slices, List<TaskActionViewModel> actions)
+        public ICollection<Toast> ToastBread(int slices, ICollection<TaskActionViewModel> actions)
         {
             var toasts = new List<Toast>();
             for (var slice = 0; slice < slices; slice++)
@@ -291,13 +300,13 @@ namespace AsyncBreakfastMVC.Tasks
             return toasts;
         }
 
-        public Task<List<Toast>> ToastBreadAsync(int slices, List<TaskActionViewModel> actions)
+        public Task<ICollection<Toast>> ToastBreadAsync(int slices, ICollection<TaskActionViewModel> actions)
         {
             return Task.FromResult(ToastBread(slices, actions));
         }
 
-        public async Task<List<Toast>> MakeToastWithButterAndJamAsync(int slices,
-            List<TaskActionViewModel> actions)
+        public async Task<ICollection<Toast>> MakeToastWithButterAndJamAsync(int slices,
+            ICollection<TaskActionViewModel> actions)
         {
             var toasts = await ToastBreadAsync(slices, actions);
             ApplyButter(toasts, actions);
@@ -306,7 +315,7 @@ namespace AsyncBreakfastMVC.Tasks
             return toasts;
         }
 
-        public Bacon FryBacon(int slices, List<TaskActionViewModel> actions)
+        public Bacon FryBacon(int slices, ICollection<TaskActionViewModel> actions)
         {
             actions.Add(new TaskActionViewModel
             {
@@ -349,12 +358,12 @@ namespace AsyncBreakfastMVC.Tasks
             return new Bacon(slices);
         }
 
-        public Task<Bacon> FryBaconAsync(int slices, List<TaskActionViewModel> actions)
+        public Task<Bacon> FryBaconAsync(int slices, ICollection<TaskActionViewModel> actions)
         {
             return Task.FromResult(FryBacon(slices, actions));
         }
 
-        public Egg FryEggs(int howMany, List<TaskActionViewModel> actions)
+        public Egg FryEggs(int howMany, ICollection<TaskActionViewModel> actions)
         {
             actions.Add(new TaskActionViewModel
             {
@@ -386,12 +395,12 @@ namespace AsyncBreakfastMVC.Tasks
             return new Egg(howMany);
         }
 
-        public Task<Egg> FryEggsAsync(int howMany, List<TaskActionViewModel> actions)
+        public Task<Egg> FryEggsAsync(int howMany, ICollection<TaskActionViewModel> actions)
         {
             return Task.FromResult(FryEggs(howMany, actions));
         }
 
-        public Coffee PourCoffee(List<TaskActionViewModel> actions)
+        public Coffee PourCoffee(ICollection<TaskActionViewModel> actions)
         {
             actions.Add(new TaskActionViewModel
             {

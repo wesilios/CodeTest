@@ -10,8 +10,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerRank.QueueUsingTwoSta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerRank.SimpleEditor", "HackerRank.SimpleEditor\HackerRank.SimpleEditor.csproj", "{7B19F419-5FFA-478A-9B35-42356CF686CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncBreakfast", "AsyncBreakfast\AsyncBreakfast.csproj", "{A603FC01-AAC9-4CD1-B650-1E37832DA72B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncBreakfastMVC", "AsyncBreakfastMVC\AsyncBreakfastMVC.csproj", "{FA248C11-46F9-46FD-8B5B-5909C1A84E96}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeetCode.Solutions", "LeetCode.Solutions\LeetCode.Solutions.csproj", "{A3B2185B-161A-447E-9663-BBB574ACD1BD}"
@@ -42,10 +40,6 @@ Global
 		{7B19F419-5FFA-478A-9B35-42356CF686CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B19F419-5FFA-478A-9B35-42356CF686CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B19F419-5FFA-478A-9B35-42356CF686CA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A603FC01-AAC9-4CD1-B650-1E37832DA72B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A603FC01-AAC9-4CD1-B650-1E37832DA72B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A603FC01-AAC9-4CD1-B650-1E37832DA72B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A603FC01-AAC9-4CD1-B650-1E37832DA72B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FA248C11-46F9-46FD-8B5B-5909C1A84E96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FA248C11-46F9-46FD-8B5B-5909C1A84E96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA248C11-46F9-46FD-8B5B-5909C1A84E96}.Release|Any CPU.ActiveCfg = Release|Any CPU

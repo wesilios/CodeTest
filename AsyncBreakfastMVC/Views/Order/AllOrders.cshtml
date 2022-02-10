@@ -1,0 +1,49 @@
+@using AsyncBreakfastMVC.Tasks.Models
+@{
+    ViewData["Title"] = "All Orders";
+    var orders = ViewData["orders"] as ICollection<Order>;
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            @using (Html.BeginForm("CreateOrder", "Order", FormMethod.Post))
+            {
+                <div class="col-auto">
+                    <input type="submit" class="btn btn-primary">
+                </div>
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <table class="table table-bordered table-responsive">
+                <thead>
+                <tr>
+                    <th>Order Id</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var order in orders)
+                {
+                    <tr>
+                        <td>@order.Id</td>
+                        <td>
+                            @if (order.Breakfast == null)
+                            {
+                                <p>Cooking</p>
+                            }
+                            else
+                            {
+                                <p>Done</p>
+                            }
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -10,16 +10,16 @@ namespace AsyncBreakfastMVC.Tasks
         Breakfast MakeBreakfast();
         Task<Breakfast> MakeBreakfastAsync();
         Task<Breakfast> MakeBreakfastMultiThreadAsync();
-        Juice PourOrangeJuice(List<TaskActionViewModel> actions);
-        void ApplyJam(List<Toast> toasts, List<TaskActionViewModel> actions);
-        void ApplyButter(List<Toast> toasts, List<TaskActionViewModel> actions);
-        List<Toast> ToastBread(int slices, List<TaskActionViewModel> actions);
-        Task<List<Toast>> ToastBreadAsync(int slices, List<TaskActionViewModel> actions);
-        Task<List<Toast>> MakeToastWithButterAndJamAsync(int slices, List<TaskActionViewModel> actions);
-        Bacon FryBacon(int slices, List<TaskActionViewModel> actions);
-        Task<Bacon> FryBaconAsync(int slices, List<TaskActionViewModel> actions);
-        Egg FryEggs(int howMany, List<TaskActionViewModel> actions);
-        Task<Egg> FryEggsAsync(int howMany, List<TaskActionViewModel> actions);
-        Coffee PourCoffee(List<TaskActionViewModel> actions);
+        Juice PourOrangeJuice(ICollection<TaskActionViewModel> actions);
+        void ApplyJam(ICollection<Toast> toasts, ICollection<TaskActionViewModel> actions);
+        void ApplyButter(ICollection<Toast> toasts, ICollection<TaskActionViewModel> actions);
+        ICollection<Toast> ToastBread(int slices, ICollection<TaskActionViewModel> actions);
+        Task<ICollection<Toast>> ToastBreadAsync(int slices, ICollection<TaskActionViewModel> actions);
+        Task<ICollection<Toast>> MakeToastWithButterAndJamAsync(int slices, ICollection<TaskActionViewModel> actions);
+        Bacon FryBacon(int slices, ICollection<TaskActionViewModel> actions);
+        Task<Bacon> FryBaconAsync(int slices, ICollection<TaskActionViewModel> actions);
+        Egg FryEggs(int howMany, ICollection<TaskActionViewModel> actions);
+        Task<Egg> FryEggsAsync(int howMany, ICollection<TaskActionViewModel> actions);
+        Coffee PourCoffee(ICollection<TaskActionViewModel> actions);
     }
 }
