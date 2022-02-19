@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using AsyncBreakfastMVC.DataAccess.Repositories;
 
 namespace AsyncBreakfastMVC.DataAccess
@@ -23,6 +24,11 @@ namespace AsyncBreakfastMVC.DataAccess
         public async Task<int> CommitAsync()
         {
             return await _dataContext.SaveChangesAsync();
+        }
+
+        public async Task<int> CommitAsync(CancellationToken cancellationToken)
+        {
+            return await _dataContext.SaveChangesAsync(cancellationToken);
         }
     }
 }

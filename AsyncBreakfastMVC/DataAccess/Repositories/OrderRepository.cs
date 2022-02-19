@@ -8,6 +8,7 @@ namespace AsyncBreakfastMVC.DataAccess.Repositories
     public class OrderRepository : Repository<Order>, IOrderRepository
     {
         private DataContext DataContext => Context as DataContext;
+
         public OrderRepository(DbContext context) : base(context)
         {
         }
@@ -15,6 +16,13 @@ namespace AsyncBreakfastMVC.DataAccess.Repositories
         public async Task<ICollection<Order>> GetAllOrdersAsync()
         {
             return await DataContext.Orders.Include(c => c.Breakfast).ToListAsync();
+        }
+
+        public async Task<Order> First()
+        {
+            return await DataContext.Orders
+                .Include(c => c.Breakfast)
+                .FirstOrDefaultAsync(c => c.Breakfast == null);
         }
     }
 }

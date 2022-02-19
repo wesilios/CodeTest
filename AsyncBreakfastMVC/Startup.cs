@@ -22,11 +22,14 @@ namespace AsyncBreakfastMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddScoped<IBreakfastRecipe, BreakfastRecipe>();
+            
             services.AddDbContext<DataContext>(
                 options => options.UseSqlite(Configuration.GetConnectionString("Sqlite")));
+            services.AddScoped<IBreakfastRecipe, BreakfastRecipe>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IOrderService, OrderService>();
+            services.AddHostedService<TheCook>();
+            services.AddSingleton<BackgroundWorkerQueue>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

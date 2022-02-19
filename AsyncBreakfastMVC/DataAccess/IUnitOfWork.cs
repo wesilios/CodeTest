@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using AsyncBreakfastMVC.DataAccess.Repositories;
 
@@ -8,5 +9,6 @@ namespace AsyncBreakfastMVC.DataAccess
     {
         IOrderRepository OrderRepository { get; } 
         Task<int> CommitAsync();
+        Task<int> CommitAsync(CancellationToken cancellationToken);
     }
 }

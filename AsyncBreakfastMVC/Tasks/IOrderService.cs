@@ -9,6 +9,5 @@ namespace AsyncBreakfastMVC.Tasks
     {
         Task<Guid> CreateOrder();
         Task<ICollection<Order>> GetAllOrdersAsync();
-        Task MakeBreakfastAsync(Order order);
     }
 }
