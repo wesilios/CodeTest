@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using AsyncBreakfastMVC.Models;
 using AsyncBreakfastMVC.Tasks.Interfaces;
 
@@ -9,12 +8,10 @@ namespace AsyncBreakfastMVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly IBreakfastRecipe _breakfastRecipe;
 
-        public HomeController(ILogger<HomeController> logger, IBreakfastRecipe breakfastRecipe)
+        public HomeController(IBreakfastRecipe breakfastRecipe)
         {
-            _logger = logger;
             _breakfastRecipe = breakfastRecipe;
         }
 

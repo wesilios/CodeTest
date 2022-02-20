@@ -331,7 +331,7 @@ namespace AsyncBreakfastMVC.Tasks.Services
 
         public Bacon FryBacon(int slices, ICollection<TaskActionViewModel> actions)
         {
-            _logger.LogInformation($"FryBacon: Putting {slices} slices of bacon in the pan");
+            _logger.LogInformation("FryBacon: Putting {Slices} slices of bacon in the pan", slices);
             actions.Add(new TaskActionViewModel
             {
                 TimeStart = DateTime.Now,
@@ -391,7 +391,7 @@ namespace AsyncBreakfastMVC.Tasks.Services
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
             });
             Task.Delay(3000).Wait();
-            _logger.LogInformation($"FryEggs: Cracking {howMany} eggs");
+            _logger.LogInformation("FryEggs: Cracking {HowMany} eggs", howMany);
             actions.Add(new TaskActionViewModel
             {
                 TimeStart = DateTime.Now,

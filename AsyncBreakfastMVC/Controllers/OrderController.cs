@@ -1,19 +1,16 @@
 ﻿using System.Threading.Tasks;
 using AsyncBreakfastMVC.Tasks.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace AsyncBreakfastMVC.Controllers
 {
     public class OrderController : Controller
     {
-        private readonly ILogger<OrderController> _logger;
         private readonly IOrderService _orderService;
 
-        public OrderController(IOrderService orderService, ILogger<OrderController> logger)
+        public OrderController(IOrderService orderService)
         {
             _orderService = orderService;
-            _logger = logger;
         }
 
         [HttpPost]

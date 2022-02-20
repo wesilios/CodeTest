@@ -44,7 +44,7 @@ namespace AsyncBreakfastMVC.Tasks.Services
                 }
                 catch (Exception e)
                 {
-                    _logger.LogError(e.Message);
+                    _logger.LogError("{E.Message}", e.Message);
                     throw;
                 }
             });
