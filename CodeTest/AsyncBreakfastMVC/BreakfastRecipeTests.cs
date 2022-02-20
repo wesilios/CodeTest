@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using AsyncBreakfastMVC.Models;
-using AsyncBreakfastMVC.Tasks;
+using AsyncBreakfastMVC.Tasks.Services;
 using Microsoft.Extensions.Logging;
 using Moq;
 using Xunit;

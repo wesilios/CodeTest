@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AsyncBreakfastMVC.Tasks.Models;
 using Microsoft.EntityFrameworkCore;
@@ -18,11 +19,11 @@ namespace AsyncBreakfastMVC.DataAccess.Repositories
             return await DataContext.Orders.Include(c => c.Breakfast).ToListAsync();
         }
 
-        public async Task<Order> First()
+        public async Task<Order> FirstOrDefaultAsync(Guid orderId)
         {
             return await DataContext.Orders
                 .Include(c => c.Breakfast)
-                .FirstOrDefaultAsync(c => c.Breakfast == null);
+                .FirstOrDefaultAsync(c => c.Breakfast == null && c.Id.Equals(orderId));
         }
     }
 }

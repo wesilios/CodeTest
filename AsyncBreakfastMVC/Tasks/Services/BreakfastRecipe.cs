@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AsyncBreakfastMVC.Models;
+using AsyncBreakfastMVC.Tasks.Interfaces;
 using AsyncBreakfastMVC.Tasks.Models;
 using Microsoft.Extensions.Logging;
 
-namespace AsyncBreakfastMVC.Tasks
+namespace AsyncBreakfastMVC.Tasks.Services
 {
     public class BreakfastRecipe : IBreakfastRecipe
     {

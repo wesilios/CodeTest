@@ -1,5 +1,4 @@
 using AsyncBreakfastMVC.DataAccess;
-using AsyncBreakfastMVC.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -25,11 +24,7 @@ namespace AsyncBreakfastMVC
             
             services.AddDbContext<DataContext>(
                 options => options.UseSqlite(Configuration.GetConnectionString("Sqlite")));
-            services.AddScoped<IBreakfastRecipe, BreakfastRecipe>();
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddTransient<IOrderService, OrderService>();
-            services.AddHostedService<TheCook>();
-            services.AddSingleton<BackgroundWorkerQueue>();
+            services.AddApiServices(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
