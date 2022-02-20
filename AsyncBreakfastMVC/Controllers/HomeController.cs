@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AsyncBreakfastMVC.Models;
-using AsyncBreakfastMVC.Tasks;
+using AsyncBreakfastMVC.Tasks.Interfaces;
 
 namespace AsyncBreakfastMVC.Controllers
 {

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using AsyncBreakfastMVC.Models;
 using AsyncBreakfastMVC.Tasks.Models;
 
-namespace AsyncBreakfastMVC.Tasks
+namespace AsyncBreakfastMVC.Tasks.Interfaces
 {
     public interface IBreakfastRecipe
     {

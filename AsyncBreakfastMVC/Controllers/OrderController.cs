@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using AsyncBreakfastMVC.Tasks;
+using AsyncBreakfastMVC.Tasks.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 

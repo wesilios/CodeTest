@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AsyncBreakfastMVC.Tasks.Models;
 
-namespace AsyncBreakfastMVC.Tasks
+namespace AsyncBreakfastMVC.Tasks.Interfaces
 {
     public interface IOrderService
     {
