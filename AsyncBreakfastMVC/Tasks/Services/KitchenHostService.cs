@@ -39,14 +39,14 @@ namespace AsyncBreakfastMVC.Tasks.Services
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex, "Error occurred executing {WorkItem}.", nameof(workItem));
+                    _logger.LogError(ex, "Error occurred executing {WorkItem}", nameof(workItem));
                 }
             }
         }
 
         public override async Task StopAsync(CancellationToken stoppingToken)
         {
-            _logger.LogInformation("Kitchen Hosted Service is stopping.");
+            _logger.LogInformation("Kitchen Hosted Service is stopping");
 
             await base.StopAsync(stoppingToken);
         }
