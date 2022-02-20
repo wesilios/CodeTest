@@ -20,12 +20,7 @@ namespace AsyncBreakfastMVC.Tasks.Services
 
         public async Task<Guid> CreateOrder()
         {
-            var order = new Order
-            {
-                Id = new Guid(),
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
-            };
+            var order = new Order();
 
             await _unitOfWork.OrderRepository.AddAsync(order);
             await _unitOfWork.CommitAsync();

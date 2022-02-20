@@ -17,30 +17,47 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-12">
             <table class="table table-bordered table-responsive">
                 <thead>
                 <tr>
                     <th>Order Id</th>
+                    <th>Order created at</th>
+                    <th>Order updated at</th>
                     <th>Status</th>
+                    <th>Breakfast created at</th>
+                    <th>Breakfast updated at</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach (var order in orders)
+                @if (orders == null || orders.Count == 0)
                 {
                     <tr>
-                        <td>@order.Id</td>
-                        <td>
-                            @if (order.Breakfast == null)
-                            {
-                                <p>Cooking</p>
-                            }
-                            else
-                            {
-                                <p>Done</p>
-                            }
-                        </td>
+                        <td colspan="6">No Orders</td>
                     </tr>
+                }
+                else
+                {
+                    @foreach (var order in orders)
+                    {
+                        <tr>
+                            <td>@order.Id</td>
+                            <td>@order.CreatedAt</td>
+                            <td>@order.UpdatedAt</td>
+                            <td>
+                                @if (order.Breakfast == null)
+                                {
+                                    <p>Cooking</p>
+                                }
+                                else
+                                {
+                                    <p>Done</p>
+                                }
+                            </td>
+                            <td>@order.Breakfast?.CreatedAt</td>
+                            <td>@order.Breakfast?.UpdatedAt</td>
+                        </tr>
+                    }
                 }
                 </tbody>
             </table>

@@ -38,6 +38,7 @@ namespace AsyncBreakfastMVC.Tasks.Services
 
                     var order = await unitOfWork.OrderRepository.FirstOrDefaultAsync(orderId);
                     order.Breakfast = breakfast;
+                    order.UpdatedAt = DateTime.Now;
                     await unitOfWork.CommitAsync(token);
                     _logger.LogInformation("End cooking...");
                 }
