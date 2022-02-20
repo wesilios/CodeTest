@@ -229,6 +229,7 @@ namespace AsyncBreakfastMVC.Tasks.Services
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString()
             });
 
+            breakfast.UpdatedAt = DateTime.Now;
             return breakfast;
         }
 
