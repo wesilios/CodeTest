@@ -15,5 +15,15 @@ namespace CodeTest.HackerRank
             var palindromeString = new PalindromeStringSolution();
             Assert.Equal(expectedResult, palindromeString.FindPalindromeIndex(str));
         }
+        
+        [Theory]
+        [InlineData("aaab", "None")]
+        [InlineData("baa", "aba")]
+        [InlineData("momom", "momom")]
+        public void CheckCanArrangeToPalindromeStringTest(string str, string expectedResult)
+        {
+            var palindromeString = new PalindromeStringSolution();
+            Assert.Equal(expectedResult, palindromeString.CheckCanArrangeToPalindromeString(str));
+        }
     }
 }

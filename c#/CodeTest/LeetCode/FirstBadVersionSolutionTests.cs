@@ -12,7 +12,7 @@ namespace CodeTest.LeetCode
         [InlineData(2126753390, 1702766719, 1702766719)]
         [InlineData(1, 1, 1)]
         [InlineData(2, 2, 2)]
-        public void FirstBadVersionTesT(int versions, int badVersion, int expected)
+        public void FirstBadVersionTest(int versions, int badVersion, int expected)
         {
             var firstBadVersionSolution = new FirstBadVersionSolution(badVersion);
 
