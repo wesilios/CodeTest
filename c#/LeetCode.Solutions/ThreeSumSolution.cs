@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace LeetCode.Solutions
@@ -6,7 +7,7 @@ namespace LeetCode.Solutions
     {
         public IList<IList<int>> ThreeSum(int[] nums)
         {
-            
+            throw new NotImplementedException();
         }
     }
 }
