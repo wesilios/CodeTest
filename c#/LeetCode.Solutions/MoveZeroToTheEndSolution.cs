@@ -9,14 +9,14 @@ namespace LeetCode.Solutions
 
             while (second < input.Length)
             {
-                if (input[second] == 0)
+                if (input[second] != 0)
                 {
-                    second++;
-                    continue;
+                    (input[first], input[second]) = (input[second], input[first]);
+                    first++;
                 }
 
-                (input[first], input[second]) = (input[second], input[first]);
-                first++;
+                second++;
+
             }
 
             return input;
