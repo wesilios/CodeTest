@@ -1,20 +1,18 @@
 ﻿using HackerRank.Solutions;
-using Xunit;
 
-namespace CodeTest.HackerRank
+namespace CodeTest.HackerRank;
+
+public class BalanceBracketsSolutionTests
 {
-    public class BalanceBracketsSolutionTests
+    [Theory]
+    [InlineData("{[()]}", true)]
+    [InlineData("[", false)]
+    [InlineData("][", false)]
+    [InlineData("{[(])}", false)]
+    [InlineData("{{[[(())]]}}", true)]
+    public void IsBalanced(string str, bool expectedResult)
     {
-        [Theory]
-        [InlineData("{[()]}", true)]
-        [InlineData("[", false)]
-        [InlineData("][", false)]
-        [InlineData("{[(])}", false)]
-        [InlineData("{{[[(())]]}}", true)]
-        public void IsBalanced(string str, bool expectedResult)
-        {
-            var balanceBracket = new BalanceBracketsSolution();
-            Assert.Equal(expectedResult, balanceBracket.IsBalance(str));
-        }
+        var balanceBracket = new BalanceBracketsSolution();
+        Assert.Equal(expectedResult, balanceBracket.IsBalance(str));
     }
 }

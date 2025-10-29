@@ -1,18 +1,16 @@
 ﻿using LeetCode.Solutions;
-using Xunit;
 
-namespace CodeTest.LeetCode
+namespace CodeTest.LeetCode;
+
+public class LengthOfLongestSubstringSolutionTest
 {
-    public class LengthOfLongestSubstringSolutionTest
+    [Theory]
+    [InlineData("abcabcbb", 3)]
+    [InlineData("bbbbb", 1)]
+    [InlineData("pwwkew", 3)]
+    public void GetLengthOfLongestSubstringTest(string s, int expectedResult)
     {
-        [Theory]
-        [InlineData("abcabcbb", 3)]
-        [InlineData("bbbbb", 1)]
-        [InlineData("pwwkew", 3)]
-        public void GetLengthOfLongestSubstringTest(string s, int expectedResult)
-        {
-            var lengthOfLongestSubstringSolution = new LengthOfLongestSubstringSolution();
-            Assert.Equal(expectedResult, lengthOfLongestSubstringSolution.GetLengthOfLongestSubstring(s));
-        }
+        var lengthOfLongestSubstringSolution = new LengthOfLongestSubstringSolution();
+        Assert.Equal(expectedResult, lengthOfLongestSubstringSolution.GetLengthOfLongestSubstring(s));
     }
 }

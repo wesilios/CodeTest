@@ -1,13 +1,12 @@
-﻿namespace CodeTest.Library
-{
-    public class SinglyLinkedListNode<T>
-    {
-        public T Data { get; set; }
-        public SinglyLinkedListNode<T> Next { get; set; }
+﻿namespace CodeTest.Library;
 
-        public SinglyLinkedListNode(T data)
-        {
-            Data = data;
-        }
+public class SinglyLinkedListNode<T>
+{
+    public T Data { get; set; }
+    public SinglyLinkedListNode<T> Next { get; set; }
+
+    public SinglyLinkedListNode(T data)
+    {
+        Data = data;
     }
 }

@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AsyncBreakfastMVC.Tasks.Models;
 
-namespace AsyncBreakfastMVC.DataAccess.Repositories
+namespace AsyncBreakfastMVC.DataAccess.Repositories;
+
+public interface IOrderRepository : IRepository<Order>
 {
-    public interface IOrderRepository : IRepository<Order>
-    {
-        Task<ICollection<Order>> GetAllOrdersAsync();
-        Task<Order> FirstOrDefaultAsync(Guid orderId);
-    }
+    Task<ICollection<Order>> GetAllOrdersAsync();
+    Task<Order> FirstOrDefaultAsync(Guid orderId);
 }

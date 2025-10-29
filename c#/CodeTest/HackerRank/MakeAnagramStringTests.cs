@@ -1,17 +1,15 @@
 ﻿using HackerRank.Solutions;
-using Xunit;
 
-namespace CodeTest.HackerRank
+namespace CodeTest.HackerRank;
+
+public class MakeAnagramStringTests
 {
-    public class MakeAnagramStringTests
+    [Theory]
+    [InlineData("abc", "cde", 4)]
+    [InlineData("abc", "amnop", 6)]
+    public void MakeAnagramStringTest(string s1, string s2, int expectedResult)
     {
-        [Theory]
-        [InlineData("abc", "cde", 4)]
-        [InlineData("abc", "amnop", 6)]
-        public void MakeAnagramStringTest(string s1, string s2, int expectedResult)
-        {
-            var makeAnagram = new MakeAnagramStringSolution();
-            Assert.Equal(expectedResult, makeAnagram.GetNumberRemovedCharacterToMakeAnagramString(s1, s2));
-        }
+        var makeAnagram = new MakeAnagramStringSolution();
+        Assert.Equal(expectedResult, makeAnagram.GetNumberRemovedCharacterToMakeAnagramString(s1, s2));
     }
 }

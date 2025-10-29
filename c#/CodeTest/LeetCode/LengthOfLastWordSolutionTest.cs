@@ -1,22 +1,20 @@
 ﻿using LeetCode.Solutions;
-using Xunit;
 
-namespace CodeTest.LeetCode
+namespace CodeTest.LeetCode;
+
+public class LengthOfLastWordSolutionTest
 {
-    public class LengthOfLastWordSolutionTest
+    [Theory]
+    [InlineData("Hello World", 5)]
+    [InlineData("luffy is still joyboy", 6)]
+    [InlineData("   fly me   to   the moon  ", 4)]
+    [InlineData("", 0)]
+    public void LengthOfLastWord(string input, int expected)
     {
-        [Theory]
-        [InlineData("Hello World", 5)]
-        [InlineData("luffy is still joyboy", 6)]
-        [InlineData("   fly me   to   the moon  ", 4)]
-        [InlineData("", 0)]
-        public void LengthOfLastWord(string input, int expected)
-        {
-            var lengthOfLastWordSolution = new LengthOfLastWordSolution();
+        var lengthOfLastWordSolution = new LengthOfLastWordSolution();
 
-            var result = lengthOfLastWordSolution.LengthOfLastWord(input);
+        var result = lengthOfLastWordSolution.LengthOfLastWord(input);
             
-            Assert.Equal(expected, result);
-        }
+        Assert.Equal(expected, result);
     }
 }

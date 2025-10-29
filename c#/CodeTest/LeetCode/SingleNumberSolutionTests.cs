@@ -1,24 +1,22 @@
 ﻿using System;
 using System.Linq;
 using LeetCode.Solutions;
-using Xunit;
 
-namespace CodeTest.LeetCode
+namespace CodeTest.LeetCode;
+
+public class SingleNumberSolutionTests
 {
-    public class SingleNumberSolutionTests
+    [Theory]
+    [InlineData("2 2 1", 1)]
+    [InlineData("4 1 2 1 2", 4)]
+    public void SingleNumber(string inputs, int expected)
     {
-        [Theory]
-        [InlineData("2 2 1", 1)]
-        [InlineData("4 1 2 1 2", 4)]
-        public void SingleNumber(string inputs, int expected)
-        {
-            var nums = inputs.Split().Select(c => Convert.ToInt32(c)).ToArray();
+        var nums = inputs.Split().Select(c => Convert.ToInt32(c)).ToArray();
             
-            var singleNumberSolution = new SingleNumberSolution();
+        var singleNumberSolution = new SingleNumberSolution();
 
-            var result = singleNumberSolution.SingleNumber(nums);
+        var result = singleNumberSolution.SingleNumber(nums);
             
-            Assert.Equal(expected, result);
-        }
+        Assert.Equal(expected, result);
     }
 }
