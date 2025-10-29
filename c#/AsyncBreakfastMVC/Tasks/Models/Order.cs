@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace AsyncBreakfastMVC.Tasks.Models
+namespace AsyncBreakfastMVC.Tasks.Models;
+
+public class Order : BaseModel<Guid>
 {
-    public class Order : BaseModel<Guid>
-    {
-        public Breakfast Breakfast { get; set; }
-    }
+    public Breakfast Breakfast { get; set; }
 }

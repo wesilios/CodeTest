@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AsyncBreakfastMVC.Tasks.Models;
 
-namespace AsyncBreakfastMVC.Tasks.Interfaces
+namespace AsyncBreakfastMVC.Tasks.Interfaces;
+
+public interface IOrderService
 {
-    public interface IOrderService
-    {
-        Task<Guid> CreateOrder();
-        Task<ICollection<Order>> GetAllOrdersAsync();
-    }
+    Task<Guid> CreateOrder();
+    Task<ICollection<Order>> GetAllOrdersAsync();
 }

@@ -1,50 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CodeTest.Library
+namespace CodeTest.Library;
+
+public class QueueWithTwoStack<T>
 {
-    public class QueueWithTwoStack<T>
+    private Stack<T> StackOne { get; }
+    private Stack<T> StackTwo { get; }
+
+    public QueueWithTwoStack()
     {
-        private Stack<T> StackOne { get; }
-        private Stack<T> StackTwo { get; }
+        StackOne = new Stack<T>();
+        StackTwo = new Stack<T>();
+    }
 
-        public QueueWithTwoStack()
+    public void Enqueue(T data)
+    {
+        StackOne.Push(data);
+    }
+
+    public void Dequeue()
+    {
+        if (StackTwo.Count == 0)
         {
-            StackOne = new Stack<T>();
-            StackTwo = new Stack<T>();
+            MoveStack();
         }
 
-        public void Enqueue(T data)
+        StackTwo.Pop();
+    }
+
+    public void PrintFront()
+    {
+        if (StackTwo.Count == 0)
         {
-            StackOne.Push(data);
+            MoveStack();
         }
 
-        public void Dequeue()
+        Console.WriteLine(StackTwo.Peek());
+    }
+
+    public void MoveStack()
+    {
+        while (StackOne.Count != 0)
         {
-            if (StackTwo.Count == 0)
-            {
-                MoveStack();
-            }
-
-            StackTwo.Pop();
-        }
-
-        public void PrintFront()
-        {
-            if (StackTwo.Count == 0)
-            {
-                MoveStack();
-            }
-
-            Console.WriteLine(StackTwo.Peek());
-        }
-
-        public void MoveStack()
-        {
-            while (StackOne.Count != 0)
-            {
-                StackTwo.Push(StackOne.Pop());
-            }
+            StackTwo.Push(StackOne.Pop());
         }
     }
 }

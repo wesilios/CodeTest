@@ -1,21 +1,19 @@
 ﻿using LeetCode.Solutions;
-using Xunit;
 
-namespace CodeTest.LeetCode
+namespace CodeTest.LeetCode;
+
+public class CombinationOfPhoneNumberTests
 {
-    public class CombinationOfPhoneNumberTests
+    [Theory]
+    [InlineData("23", "ad ae af bd be bf cd ce cf")]
+    public void LetterCombinationTest(string phoneNumber, string combinationExpected)
     {
-        [Theory]
-        [InlineData("23", "ad ae af bd be bf cd ce cf")]
-        public void LetterCombinationTest(string phoneNumber, string combinationExpected)
+        var combinationOfPhoneNumber = new CombinationOfPhoneNumberSolution();
+        var combination = combinationOfPhoneNumber
+            .GetLetterCombination(phoneNumber);
+        foreach (var ctx in combinationExpected.Split())
         {
-            var combinationOfPhoneNumber = new CombinationOfPhoneNumberSolution();
-            var combination = combinationOfPhoneNumber
-                .GetLetterCombination(phoneNumber);
-            foreach (var ctx in combinationExpected.Split())
-            {
-                Assert.Contains(ctx, combination);
-            }
+            Assert.Contains(ctx, combination);
         }
     }
 }

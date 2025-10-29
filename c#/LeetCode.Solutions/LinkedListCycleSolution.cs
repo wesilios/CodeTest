@@ -1,33 +1,32 @@
 ﻿using System.Collections.Generic;
 using CodeTest.Library;
 
-namespace LeetCode.Solutions
+namespace LeetCode.Solutions;
+
+public class LinkedListCycleSolution
 {
-    public class LinkedListCycleSolution
+    public bool HasCycle<T>(SinglyLinkedListNode<T> head)
     {
-        public bool HasCycle<T>(SinglyLinkedListNode<T> head)
-        {
-            if (head == null) return false;
+        if (head == null) return false;
             
-            var node = head;
+        var node = head;
 
-            var nodeDictionary = new Dictionary<SinglyLinkedListNode<T>, SinglyLinkedListNode<T>>();
+        var nodeDictionary = new Dictionary<SinglyLinkedListNode<T>, SinglyLinkedListNode<T>>();
 
-            var result = false;
+        var result = false;
 
-            while (node.Next != null)
+        while (node.Next != null)
+        {
+            if (nodeDictionary.ContainsKey(node.Next))
             {
-                if (nodeDictionary.ContainsKey(node.Next))
-                {
-                    result = true;
-                    break;
-                }
-                
-                nodeDictionary.Add(node, node);
-                node = node.Next;
+                result = true;
+                break;
             }
-
-            return result;
+                
+            nodeDictionary.Add(node, node);
+            node = node.Next;
         }
+
+        return result;
     }
 }

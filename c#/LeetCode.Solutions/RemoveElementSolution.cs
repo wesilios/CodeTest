@@ -1,24 +1,23 @@
 ﻿using System.Collections.Generic;
 
-namespace LeetCode.Solutions
-{
-    public class RemoveElementSolution
-    {
-        public int RemoveElement(List<int> nums, int val)
-        {
-            var length = 0;
-            for (var i = 0; i < nums.Count; i++)
-            {
-                if (nums[i] == val)
-                {
-                    continue;
-                }
+namespace LeetCode.Solutions;
 
-                nums[length] = nums[i];
-                length++;
+public class RemoveElementSolution
+{
+    public int RemoveElement(List<int> nums, int val)
+    {
+        var length = 0;
+        for (var i = 0; i < nums.Count; i++)
+        {
+            if (nums[i] == val)
+            {
+                continue;
             }
 
-            return length;
+            nums[length] = nums[i];
+            length++;
         }
+
+        return length;
     }
 }

@@ -2,33 +2,32 @@
 using System.Threading.Tasks;
 using AsyncBreakfastMVC.DataAccess.Repositories;
 
-namespace AsyncBreakfastMVC.DataAccess
+namespace AsyncBreakfastMVC.DataAccess;
+
+public class UnitOfWork : IUnitOfWork
 {
-    public class UnitOfWork : IUnitOfWork
+    private readonly DataContext _dataContext;
+    private OrderRepository _orderRepository;
+
+    public UnitOfWork(DataContext dataContext)
     {
-        private readonly DataContext _dataContext;
-        private OrderRepository _orderRepository;
+        _dataContext = dataContext;
+    }
 
-        public UnitOfWork(DataContext dataContext)
-        {
-            _dataContext = dataContext;
-        }
+    public IOrderRepository OrderRepository => _orderRepository ??= new OrderRepository(_dataContext);
 
-        public IOrderRepository OrderRepository => _orderRepository ??= new OrderRepository(_dataContext);
+    public void Dispose()
+    {
+        _dataContext.Dispose();
+    }
 
-        public void Dispose()
-        {
-            _dataContext.Dispose();
-        }
+    public async Task<int> CommitAsync()
+    {
+        return await _dataContext.SaveChangesAsync();
+    }
 
-        public async Task<int> CommitAsync()
-        {
-            return await _dataContext.SaveChangesAsync();
-        }
-
-        public async Task<int> CommitAsync(CancellationToken cancellationToken)
-        {
-            return await _dataContext.SaveChangesAsync(cancellationToken);
-        }
+    public async Task<int> CommitAsync(CancellationToken cancellationToken)
+    {
+        return await _dataContext.SaveChangesAsync(cancellationToken);
     }
 }

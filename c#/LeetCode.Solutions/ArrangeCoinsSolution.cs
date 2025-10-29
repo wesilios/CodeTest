@@ -1,23 +1,22 @@
-﻿namespace LeetCode.Solutions
-{
-    public class ArrangeCoinsSolution
-    {
-        public int ArrangeCoins(int n)
-        {
-            var row = 1;
-            while (true)
-            {
-                var remain = n - row;
-                if (remain < row + 1)
-                {
-                    break;
-                }
+﻿namespace LeetCode.Solutions;
 
-                n = remain;
-                row++;
+public class ArrangeCoinsSolution
+{
+    public int ArrangeCoins(int n)
+    {
+        var row = 1;
+        while (true)
+        {
+            var remain = n - row;
+            if (remain < row + 1)
+            {
+                break;
             }
 
-            return row;
+            n = remain;
+            row++;
         }
+
+        return row;
     }
 }

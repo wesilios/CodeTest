@@ -1,26 +1,25 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace LeetCode.Solutions
+namespace LeetCode.Solutions;
+
+public class SingleNumberSolution
 {
-    public class SingleNumberSolution
+    public int SingleNumber(int[] nums)
     {
-        public int SingleNumber(int[] nums)
+        var numsMap = new HashSet<int>();
+
+        foreach (var num in nums)
         {
-            var numsMap = new HashSet<int>();
-
-            foreach (var num in nums)
+            if (numsMap.Contains(num))
             {
-                if (numsMap.Contains(num))
-                {
-                    numsMap.Remove(num);
-                    continue;
-                }
-                
-                numsMap.Add(num);
+                numsMap.Remove(num);
+                continue;
             }
-
-            return numsMap.First();
+                
+            numsMap.Add(num);
         }
+
+        return numsMap.First();
     }
 }

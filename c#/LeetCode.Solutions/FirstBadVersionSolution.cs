@@ -1,44 +1,43 @@
-﻿namespace LeetCode.Solutions
+﻿namespace LeetCode.Solutions;
+
+public class FirstBadVersionSolution : VersionControl
 {
-    public class FirstBadVersionSolution : VersionControl
+    public FirstBadVersionSolution(int firstBadVersion) : base(firstBadVersion)
     {
-        public FirstBadVersionSolution(int firstBadVersion) : base(firstBadVersion)
-        {
-        }
-
-        public int FirstBadVersion(int versions)
-        {
-            var start = 0;
-            var end = versions;
-
-            while (end - start > 1)
-            {
-                var middle = (end - start) / 2 + start;
-                if (IsBadVersion(middle))
-                {
-                    end = middle;
-                    continue;
-                }
-
-                start = middle;
-            }
-
-            return end;
-        }
     }
 
-    public class VersionControl
+    public int FirstBadVersion(int versions)
     {
-        private readonly int _firstBadVersion;
+        var start = 0;
+        var end = versions;
 
-        protected VersionControl(int firstBadVersion)
+        while (end - start > 1)
         {
-            _firstBadVersion = firstBadVersion;
+            var middle = (end - start) / 2 + start;
+            if (IsBadVersion(middle))
+            {
+                end = middle;
+                continue;
+            }
+
+            start = middle;
         }
 
-        protected bool IsBadVersion(int version)
-        {
-            return version >= _firstBadVersion;
-        }
+        return end;
+    }
+}
+
+public class VersionControl
+{
+    private readonly int _firstBadVersion;
+
+    protected VersionControl(int firstBadVersion)
+    {
+        _firstBadVersion = firstBadVersion;
+    }
+
+    protected bool IsBadVersion(int version)
+    {
+        return version >= _firstBadVersion;
     }
 }

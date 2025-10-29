@@ -1,8 +1,7 @@
-﻿namespace HackerRank.Solutions.TruckTour
+﻿namespace HackerRank.Solutions.TruckTour;
+
+struct GasStation
 {
-    struct GasStation
-    {
-        public int Gas { get; set; }
-        public int Next { get; set; }
-    }
+    public int Gas { get; set; }
+    public int Next { get; set; }
 }
