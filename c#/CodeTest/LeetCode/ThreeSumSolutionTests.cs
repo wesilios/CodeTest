@@ -1,40 +1,59 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using LeetCode.Solutions;
-using Xunit;
 
 namespace CodeTest.LeetCode;
 
 public class ThreeSumSolutionTests
 {
+    private readonly ThreeSumSolution _solution = new();
+
     [Theory]
     [InlineData("-1,0,1,2,-1,-4", "-1,-1,2|-1,0,1")]
     [InlineData("0,1,1", "")]
     [InlineData("0,0,0", "0,0,0")]
-    public void ThreeSumTest(string input, string expectedResults)
+    public void ThreeSum_ReturnsExpectedTriplets(string numsStr, string expectedStr)
     {
-        //Arrange
-        var nums = input.Split(",").Select(int.Parse).ToArray();
-        var solution = new ThreeSumSolution();
-        var expectResultNums = new List<List<int>>();
-        if (!string.IsNullOrEmpty(expectedResults))
+        // Arrange
+        var nums = numsStr.Split(',', StringSplitOptions.RemoveEmptyEntries)
+            .Select(int.Parse)
+            .ToArray();
+
+        var expected = ParseExpected(expectedStr);
+
+        // Act
+        var result = _solution.ThreeSum(nums);
+
+        // Sort inner lists for comparison consistency
+        var sortedResult = result
+            .Select(t => t.OrderBy(x => x).ToList())
+            .OrderBy(t => string.Join(",", t))
+            .ToList();
+
+        var sortedExpected = expected
+            .Select(t => t.OrderBy(x => x).ToList())
+            .OrderBy(t => string.Join(",", t))
+            .ToList();
+
+        // Assert
+        Assert.Equal(sortedExpected.Count, sortedResult.Count);
+
+        for (int i = 0; i < sortedExpected.Count; i++)
         {
-            expectResultNums = expectedResults.Split("|").Select(x => x.Split(",").Select(int.Parse).ToList()).ToList();
+            Assert.Equal(sortedExpected[i], sortedResult[i]);
         }
+    }
 
-        //Act
-        var results = solution.ThreeSum(nums);
+    private static List<List<int>> ParseExpected(string expectedStr)
+    {
+        if (string.IsNullOrWhiteSpace(expectedStr))
+            return new List<List<int>>();
 
-        //Assert
-        var result = true;
-        // foreach (var expectedResult in expectedResults)
-        // {
-        //     foreach (var item in results)
-        //     {
-        //         
-        //     }
-        // }
-        
-        Assert.True(result);
+        return expectedStr.Split('|', StringSplitOptions.RemoveEmptyEntries)
+            .Select(t => t.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse)
+                .ToList())
+            .ToList();
     }
 }
