@@ -21,7 +21,7 @@ public class LongestPalindromicSubstringSolutionTests
         var result = longestPalindromicSubstringSolution.LongestPalindrome(s);
 
         var expected = expectedResults.Split();
-            
+
         Assert.Contains(result, expected);
     }
 }

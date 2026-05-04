@@ -14,7 +14,7 @@ public class ValidPerfectSquareSolutionTests
         var validPerfectSquareSolution = new ValidPerfectSquareSolution();
 
         var result = validPerfectSquareSolution.PerfectSquare(x);
-            
+
         Assert.Equal(expected, result);
     }
 }

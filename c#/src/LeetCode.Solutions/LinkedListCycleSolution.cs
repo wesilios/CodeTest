@@ -8,7 +8,7 @@ public class LinkedListCycleSolution
     public bool HasCycle<T>(SinglyLinkedListNode<T> head)
     {
         if (head == null) return false;
-            
+
         var node = head;
 
         var nodeDictionary = new Dictionary<SinglyLinkedListNode<T>, SinglyLinkedListNode<T>>();
@@ -22,7 +22,7 @@ public class LinkedListCycleSolution
                 result = true;
                 break;
             }
-                
+
             nodeDictionary.Add(node, node);
             node = node.Next;
         }

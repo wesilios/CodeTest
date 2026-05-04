@@ -8,7 +8,7 @@ public class DataContext : DbContext
     public DataContext(DbContextOptions<DataContext> options) : base(options)
     {
     }
-        
+
     public DbSet<Bacon> Bacons { get; set; }
     public DbSet<Breakfast> Breakfasts { get; set; }
     public DbSet<Coffee> Coffees { get; set; }

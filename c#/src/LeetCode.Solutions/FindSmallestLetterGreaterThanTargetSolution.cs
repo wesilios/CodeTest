@@ -6,7 +6,7 @@ public class FindSmallestLetterGreaterThanTargetSolution
     {
         var low = 0;
         var high = letters.Length - 1;
-            
+
         while (low <= high)
         {
             var middle = low + (high - low) / 2;

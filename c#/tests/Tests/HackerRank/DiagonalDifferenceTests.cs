@@ -17,7 +17,7 @@ public class DiagonalDifferenceTests
 
         var diagonalDifference = new DiagonalDifferenceSolution();
         const int expectResult = 15;
-            
+
 
         Assert.Equal(expectResult, diagonalDifference.FindDiagonalDifference(arr));
     }

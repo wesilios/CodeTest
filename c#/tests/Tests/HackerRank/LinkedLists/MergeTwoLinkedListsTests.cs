@@ -14,7 +14,7 @@ public class MergeTwoLinkedListsTests
         var linkedListSolution = new LinkedListSolution();
         var inputData = s1.Split(",");
         var headOne = linkedListSolution.MakeLinkedListFromTail(inputData);
-            
+
         var inputDataS2 = s2.Split(",");
         var headTwo = linkedListSolution.MakeLinkedListFromTail(inputDataS2);
 
@@ -26,7 +26,7 @@ public class MergeTwoLinkedListsTests
             result += temp.Data.ToString();
             temp = temp.Next;
         }
-            
+
         Assert.Equal(expectedResult, result);
     }
 }

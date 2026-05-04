@@ -12,11 +12,11 @@ public class SingleNumberSolutionTests
     public void SingleNumber(string inputs, int expected)
     {
         var nums = inputs.Split().Select(c => Convert.ToInt32(c)).ToArray();
-            
+
         var singleNumberSolution = new SingleNumberSolution();
 
         var result = singleNumberSolution.SingleNumber(nums);
-            
+
         Assert.Equal(expected, result);
     }
 }

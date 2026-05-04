@@ -17,9 +17,9 @@ public class FindIndicesAfterSortingArraySolutionTests
         var findIndicesAfterSortingArraySolution = new FindIndicesAfterSortingArraySolution();
 
         var indices = findIndicesAfterSortingArraySolution.TargetIndices(numbers, target);
-            
+
         Assert.Equal(expectedLength, indices.Count);
-            
+
         foreach (var ctx in indices)
         {
             Assert.Equal(target, numbers[ctx]);

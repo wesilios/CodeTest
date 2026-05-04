@@ -12,7 +12,7 @@ public class GuessNumberHigherOrLowerSolutionTests
         var guessNumberHigherOrLowerSolution = new GuessNumberHigherOrLowerSolution(pick);
 
         var guess = guessNumberHigherOrLowerSolution.GuessNumber(n);
-            
+
         Assert.Equal(expected, guess);
     }
 }

@@ -30,7 +30,7 @@ public class HomeController : Controller
         var taskOne = Task.Run(() => _breakfastRecipe.MakeBreakfast());
         var taskTwo = Task.Run(() => _breakfastRecipe.MakeBreakfastAsync());
         var breakfastOne = await taskOne;
-        var breakfastTwo= await taskTwo;
+        var breakfastTwo = await taskTwo;
         ViewData["actions"] = breakfastOne.Actions;
         ViewData["actionWithAsync"] = breakfastTwo.Actions;
 
@@ -42,7 +42,7 @@ public class HomeController : Controller
         var taskOne = Task.Run(() => _breakfastRecipe.MakeBreakfastAsync());
         var taskTwo = Task.Run(() => _breakfastRecipe.MakeBreakfastMultiThreadAsync());
         var breakfastOne = await taskOne;
-        var breakfastTwo= await taskTwo;
+        var breakfastTwo = await taskTwo;
         ViewData["actions"] = breakfastOne.Actions;
         ViewData["actionWithAsync"] = breakfastTwo.Actions;
 

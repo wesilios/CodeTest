@@ -11,12 +11,12 @@ public class PowSolution
         {
             return 0.00000;
         }
-            
+
         var tempN = n;
         if (tempN < 0) tempN *= -1;
 
         var pow = 1.0;
-            
+
         while (tempN > 0)
         {
             if (tempN % 2 == 0)
@@ -29,7 +29,7 @@ public class PowSolution
             pow *= x;
             tempN--;
         }
-            
+
         if (n < 0)
         {
             return 1.0 / pow;

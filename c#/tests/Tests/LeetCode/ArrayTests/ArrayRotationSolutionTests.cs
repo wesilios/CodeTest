@@ -24,7 +24,7 @@ public class ArrayRotationSolutionTests
 
             result += arr[i];
         }
-            
+
         Assert.Equal(expectedResult, result);
     }
 }

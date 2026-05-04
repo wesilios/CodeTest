@@ -18,6 +18,7 @@ public class RemoveDuplicatedFromSortedListSolution
 
             node = node.Next;
         }
+
         return head;
     }
 }

@@ -12,7 +12,7 @@ public class LengthOfLastWordSolution
 
         for (var i = stringArray.Length - 1; i >= 0; i--)
         {
-            if(string.IsNullOrEmpty(stringArray[i])) continue;
+            if (string.IsNullOrEmpty(stringArray[i])) continue;
             lastWord = stringArray[i];
             break;
         }

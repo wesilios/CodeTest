@@ -119,30 +119,32 @@ public class UnitTest3
         const int n = 10;
         var queries = new List<List<int>>
         {
-            new List<int> {2, 6, 8},
-            new List<int> {3, 5, 7},
-            new List<int> {1, 8, 1},
-            new List<int> {5, 9, 15}
+            new List<int> { 2, 6, 8 },
+            new List<int> { 3, 5, 7 },
+            new List<int> { 1, 8, 1 },
+            new List<int> { 5, 9, 15 }
         };
         long max = 31;
         Assert.Equal(max, ArrayManipulation(n, queries));
     }
-        
+
     private long ArrayManipulation(int n, List<List<int>> queries)
     {
-        var arr = new long[n +1];
-        foreach(var query in queries){
+        var arr = new long[n + 1];
+        foreach (var query in queries)
+        {
             arr[query[0] - 1] += query[2];
             arr[query[1]] -= query[2];
         }
-            
+
         long sum = 0;
         long max = 0;
-        for (var i = 0; i < n; i++) {
+        for (var i = 0; i < n; i++)
+        {
             sum += arr[i];
             max = Math.Max(max, sum);
         }
-        
+
         return max;
     }
 }

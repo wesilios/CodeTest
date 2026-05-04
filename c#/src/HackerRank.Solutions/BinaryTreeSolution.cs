@@ -83,7 +83,7 @@ public class BinaryTreeSolution
 
         left += Height(root.Left);
         right += Height(root.Right);
-            
+
         result += right > left ? right : left;
         return result;
     }

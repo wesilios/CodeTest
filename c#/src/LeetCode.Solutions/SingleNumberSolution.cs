@@ -16,7 +16,7 @@ public class SingleNumberSolution
                 numsMap.Remove(num);
                 continue;
             }
-                
+
             numsMap.Add(num);
         }
 
