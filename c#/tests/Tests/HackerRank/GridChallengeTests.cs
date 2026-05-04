@@ -1,0 +1,16 @@
+﻿using System.Collections.Generic;
+using HackerRank.Solutions;
+
+namespace Tests.HackerRank;
+
+public class GridChallengeTests
+{
+    [Fact]
+    public void GridChallengeTest()
+    {
+        var grid = new List<string> { "mpxz", "abcd", "wlmf" };
+        const bool expectedResult = false;
+        var gridChallenge = new GridChallengeSolution();
+        Assert.Equal(expectedResult, gridChallenge.IsValidGrid(grid));
+    }
+}
