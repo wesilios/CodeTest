@@ -36,8 +36,8 @@ public class PermCheckTests
         {
             numberMap.Add(i);
         }
-            
-        foreach(var t in a)
+
+        foreach (var t in a)
         {
             numberMap.Remove(t);
         }

@@ -4,8 +4,10 @@
 @{
     var actions = ViewData["actions"] as IEnumerable<TaskActionViewModel>;
     var actionWithAsync = ViewData["actionWithAsync"] as IEnumerable<TaskActionViewModel>;
-    var totalRunTime = actions.Last().TimeStart - actions.First().TimeStart;
-    var totalRunTimeAsync = actionWithAsync.Last().TimeStart - actionWithAsync.First().TimeStart;
+    var totalRunTime = actions.Any() ? 
+        actions.Last().TimeStart - actions.First().TimeStart : TimeSpan.Zero;
+    var totalRunTimeAsync = actionWithAsync.Any() ?
+        actionWithAsync.Last().TimeStart - actionWithAsync.First().TimeStart : TimeSpan.Zero;
 }
 <h1>@ViewData["Title"]</h1>
 

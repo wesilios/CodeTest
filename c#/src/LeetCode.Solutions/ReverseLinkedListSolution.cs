@@ -55,6 +55,5 @@ public class ReverseLinkedListSolution
         if (prevLeftNode == null) return rightNode;
         prevLeftNode.Next = rightNode;
         return head;
-
     }
 }

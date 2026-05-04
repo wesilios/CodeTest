@@ -26,7 +26,7 @@ public class RansomNoteSolution
 
             return false;
         }
-            
+
         return true;
     }
 }

@@ -19,7 +19,7 @@ public class BinarySearchSolutionTests
         var binarySearchSolution = new BinarySearchSolution();
 
         var result = binarySearchSolution.Search(numbers, target);
-            
+
         Assert.Equal(expected, result);
     }
 }

@@ -14,7 +14,7 @@ public class PalindromeStringTests
         var palindromeString = new PalindromeStringSolution();
         Assert.Equal(expectedResult, palindromeString.FindPalindromeIndex(str));
     }
-        
+
     [Theory]
     [InlineData("aaab", "None")]
     [InlineData("baa", "aba")]

@@ -21,9 +21,8 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
-            
-        services.AddDbContext<DataContext>(
-            options => options.UseSqlite(Configuration.GetConnectionString("Sqlite")));
+
+        services.AddDbContext<DataContext>(options => options.UseSqlite(Configuration.GetConnectionString("Sqlite")));
         services.AddApiServices(Configuration);
     }
 

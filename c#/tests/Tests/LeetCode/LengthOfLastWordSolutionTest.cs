@@ -14,7 +14,7 @@ public class LengthOfLastWordSolutionTest
         var lengthOfLastWordSolution = new LengthOfLastWordSolution();
 
         var result = lengthOfLastWordSolution.LengthOfLastWord(input);
-            
+
         Assert.Equal(expected, result);
     }
 }

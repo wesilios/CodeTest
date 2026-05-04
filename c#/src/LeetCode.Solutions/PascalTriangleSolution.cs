@@ -22,7 +22,7 @@ public class PascalTriangleSolution
                     continue;
                 }
 
-                row.Add(result[i - 1][j-1] + result[i - 1][j]);
+                row.Add(result[i - 1][j - 1] + result[i - 1][j]);
             }
 
             result.Add(row);

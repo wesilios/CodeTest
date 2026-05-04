@@ -13,11 +13,12 @@ public class TwoSumInputArrayIsSortedSolution
             var remain = target - numbers[i];
             if (numsMap.ContainsKey(remain))
             {
-                return new[] { numsMap[remain] + 1, i + 1};
+                return new[] { numsMap[remain] + 1, i + 1 };
             }
 
             numsMap.TryAdd(numbers[i], i);
         }
+
         return Array.Empty<int>();
     }
 }

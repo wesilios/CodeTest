@@ -21,7 +21,7 @@ public class SwapNodeInPairsTests
             result += temp.Data.ToString();
             temp = temp.Next;
         }
-            
+
         Assert.Equal(expectedResult, result);
     }
 }

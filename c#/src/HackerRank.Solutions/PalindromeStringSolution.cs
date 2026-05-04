@@ -46,7 +46,7 @@ public class PalindromeStringSolution
                 countChars[character]++;
                 continue;
             }
-                
+
             countChars.Add(character, 1);
         }
 
@@ -63,7 +63,6 @@ public class PalindromeStringSolution
             if (oddChar != string.Empty || key.ToString() == oddChar) return "None";
             oddChar = key.ToString();
             palindrome += new StringBuilder(1 * value).Insert(0, key.ToString(), value / 2).ToString();
-
         }
 
         return $"{palindrome}{oddChar}{new string(palindrome.Reverse().ToArray())}";

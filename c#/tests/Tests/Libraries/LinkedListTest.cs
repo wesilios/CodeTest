@@ -24,7 +24,7 @@ public class LinkedListTest
 
         Assert.Equal(expectedResult, result);
     }
-        
+
     [Theory]
     [InlineData("1,2,3,4,5,6", "123456")]
     public void MakeLinkedListFromTailTest(string input, string expectedResult)

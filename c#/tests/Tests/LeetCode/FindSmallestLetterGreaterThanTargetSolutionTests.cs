@@ -13,11 +13,11 @@ public class FindSmallestLetterGreaterThanTargetSolutionTests
     public void NextGreatestLetterTest(string characters, char target, char expected)
     {
         var letters = characters.Split().Select(char.Parse).ToArray();
-            
+
         var findSmallestLetterGreaterThanTargetSolution = new FindSmallestLetterGreaterThanTargetSolution();
 
         var result = findSmallestLetterGreaterThanTargetSolution.NextGreatestLetter(letters, target);
-            
+
         Assert.Equal(expected, result);
     }
 }

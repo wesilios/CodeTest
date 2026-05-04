@@ -20,8 +20,8 @@ public class GridChallengeSolution
                     j++;
                     continue;
                 }
-                    
-                dictionaryString.Add(j, new string(new []{t[j]}));
+
+                dictionaryString.Add(j, new string(new[] { t[j] }));
                 j++;
             }
         }
@@ -31,9 +31,10 @@ public class GridChallengeSolution
             if (item.Value.Equals(OrderString(item.Value))) continue;
             return false;
         }
+
         return true;
     }
-        
+
     private string OrderString(string str)
     {
         return new string(str.OrderBy(c => c).ToArray());

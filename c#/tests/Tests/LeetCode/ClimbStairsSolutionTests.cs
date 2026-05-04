@@ -12,7 +12,7 @@ public class ClimbStairsSolutionTests
         var climbStairsSolution = new ClimbStairsSolution();
 
         var result = climbStairsSolution.ClimbStairs(n);
-            
+
         Assert.Equal(expected, result);
     }
 }

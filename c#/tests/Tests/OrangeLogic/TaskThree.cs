@@ -25,10 +25,11 @@ public class TaskThree
         {
             if (a[i] > a[i + 1]) continue;
             var total = a[i] + a[i + 1];
-            if (i + 2 < a.Length && total == a[i+1] + a[i + 2])
+            if (i + 2 < a.Length && total == a[i + 1] + a[i + 2])
             {
                 i++;
             }
+
             if (totalMap.ContainsKey(total))
             {
                 totalMap[total] += 1;

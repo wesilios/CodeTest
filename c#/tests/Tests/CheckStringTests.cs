@@ -22,7 +22,7 @@ public class CheckStringTests
         var solution = new Solution();
         Assert.Equal(expectedResult, solution.CheckString(input));
     }
-        
+
     [Theory]
     [InlineData("aba", 0)]
     [InlineData("abxa", 1)]
@@ -81,11 +81,11 @@ public class CheckStringTests
                     countLeft++;
                     countRight++;
                 }
-                    
+
                 left++;
                 right--;
             }
-                
+
             return countLeft + countRight;
         }
 

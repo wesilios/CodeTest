@@ -38,7 +38,7 @@ public class RotateLinkedListSolution
 
             prev.Next = null;
             head.Next = oldHead;
-            k--; 
+            k--;
         }
 
         return head;

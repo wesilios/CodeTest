@@ -33,7 +33,7 @@ internal class PrefixSuffixSum
 {
     public int[] PrefixSum(int[] a)
     {
-        var result = new int[a.Length +1];
+        var result = new int[a.Length + 1];
         result[0] = a[0];
         for (var i = 1; i < a.Length + 1; i++)
         {
@@ -49,7 +49,7 @@ internal class PrefixSuffixSum
         result[^1] = a[^1];
         for (var i = a.Length - 2; i >= 0; i--)
         {
-            result[i] = result[i + 1] + a[i +1];
+            result[i] = result[i + 1] + a[i + 1];
         }
 
         return result;

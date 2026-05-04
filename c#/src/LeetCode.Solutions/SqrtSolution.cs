@@ -9,7 +9,7 @@ public class SqrtSolution
         while (low + 1 < high)
         {
             var mid = low + (high - low) / 2;
-            if (mid * mid == x) return (int) mid;
+            if (mid * mid == x) return (int)mid;
             if (mid * mid > x)
             {
                 high = mid;

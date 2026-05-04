@@ -57,7 +57,7 @@ public class BreakfastRecipeTests
         Assert.True(breakfast.Toasts.All(c => c.HasJam));
         Assert.True(breakfast.Actions != null && breakfast.Actions.Count != 0);
     }
-        
+
     [Fact]
     public async Task MakeBreakfastMultiThreadAsyncTest()
     {
@@ -92,7 +92,7 @@ public class BreakfastRecipeTests
         Assert.NotNull(juice);
         Assert.True(actions.Count != 0);
     }
-        
+
     [Fact]
     public void PourCoffeeTest()
     {
