@@ -1,13 +1,6 @@
-using System;
-using System.IO;
 using AsyncBreakfastMVC;
 using AsyncBreakfastMVC.DataAccess;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);

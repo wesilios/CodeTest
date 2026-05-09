@@ -1,8 +1,6 @@
 ﻿using AsyncBreakfastMVC.DataAccess;
 using AsyncBreakfastMVC.Tasks.Interfaces;
 using AsyncBreakfastMVC.Tasks.Services;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace AsyncBreakfastMVC;
 

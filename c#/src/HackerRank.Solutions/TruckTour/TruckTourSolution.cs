@@ -1,9 +1,18 @@
-﻿using System.Collections.Generic;
-
-namespace HackerRank.Solutions.TruckTour;
+﻿namespace HackerRank.Solutions.TruckTour;
 
 public class TruckTourSolution
 {
+    /// <summary>
+    /// Determines the starting petrol pump index from which a truck can complete a circular tour.
+    /// </summary>
+    /// <param name="petrolPumps">
+    /// A list of petrol pumps where each petrol pump is represented as a list of two integers:
+    /// the amount of petrol provided by the pump and the distance to the next pump.
+    /// </param>
+    /// <returns>
+    /// The index of the starting petrol pump that allows for a complete circular tour.
+    /// Returns -1 if no such starting point exists.
+    /// </returns>
     public int GetStartingPoint(List<List<int>> petrolPumps)
     {
         var route = new Queue<GasStation>();
@@ -16,19 +25,14 @@ public class TruckTourSolution
             });
         }
 
-        return GetStartingPoint(route);
-    }
-
-    private int GetStartingPoint(Queue<GasStation> petrolPumps)
-    {
         var start = 0;
         var passed = 0;
         var gas = 0;
         while (passed < petrolPumps.Count)
         {
-            var gasStation = petrolPumps.Dequeue();
+            var gasStation = route.Dequeue();
             gas += gasStation.Gas;
-            petrolPumps.Enqueue(gasStation);
+            route.Enqueue(gasStation);
             if (gas >= gasStation.Next)
             {
                 passed++;
@@ -42,5 +46,11 @@ public class TruckTourSolution
         }
 
         return start;
+    }
+
+    private struct GasStation
+    {
+        public int Gas { get; set; }
+        public int Next { get; set; }
     }
 }

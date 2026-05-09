@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Libraries;
+﻿namespace Libraries;
 
 public class Queue<T>
 {

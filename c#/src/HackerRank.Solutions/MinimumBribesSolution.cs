@@ -1,9 +1,13 @@
-﻿using System.Collections.Generic;
-
-namespace HackerRank.Solutions;
+﻿namespace HackerRank.Solutions;
 
 public class MinimumBribesSolution
 {
+    /// <summary>
+    /// Calculates the total number of bribes that occurred in the given queue. If the state of the queue is invalid,
+    /// where an individual has moved forward by more than two positions, the method returns -1.
+    /// </summary>
+    /// <param name="queue">A list of integers representing the queue, where each integer corresponds to a person's original position.</param>
+    /// <returns>An integer representing the total number of bribes in the queue, or -1 if the queue state is invalid.</returns>
     public int CheckTotalBribes(IList<int> queue)
     {
         var count = 0;

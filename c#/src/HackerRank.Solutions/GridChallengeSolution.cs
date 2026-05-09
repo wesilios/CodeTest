@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace HackerRank.Solutions;
+﻿namespace HackerRank.Solutions;
 
 public class GridChallengeSolution
 {
+    /// <summary>
+    /// Validates if the provided grid of strings is valid based on the rules
+    /// that each row is sorted in ascending order, and columns also remain
+    /// in ascending sorted order after rows are sorted.
+    /// </summary>
+    /// <param name="grid">A collection of strings representing the grid.</param>
+    /// <returns>True if the grid is valid, otherwise false.</returns>
     public bool IsValidGrid(IEnumerable<string> grid)
     {
         var gridOrdered = grid.Select(OrderString).ToList();

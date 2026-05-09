@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Libraries;
+﻿using Libraries;
 using HackerRank.Solutions;
 
 namespace Tests.HackerRank.LinkedLists;

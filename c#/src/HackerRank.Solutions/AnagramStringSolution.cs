@@ -1,9 +1,20 @@
-﻿using System.Collections.Generic;
+﻿namespace HackerRank.Solutions;
 
-namespace HackerRank.Solutions;
-
+/// <summary>
+/// Provides a solution for the HackerRank anagram string problem.
+/// Determines the minimum number of character changes needed to make the two halves
+/// of a string anagrams of each other.
+/// </summary>
 public class AnagramStringSolution
 {
+    /// <summary>
+    /// Returns the minimum number of character changes needed to make the two halves
+    /// of the input string anagrams of each other.
+    /// </summary>
+    /// <param name="str">The string to check.</param>
+    /// <returns>
+    /// The required number of changes, or <c>-1</c> if the string length is odd.
+    /// </returns>
     public int GetNumberSwapCharacterToMakeAnagramString(string str)
     {
         if (str.Length % 2 != 0) return -1;

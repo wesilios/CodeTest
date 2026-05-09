@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace LeetCode.Solutions;
+﻿namespace LeetCode.Solutions;
 
 public class IntersectionOfTwoArraysSolution
 {

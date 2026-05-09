@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using HackerRank.Solutions;
+﻿using HackerRank.Solutions;
 
 namespace Tests.HackerRank;
 

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace LeetCode.Solutions;
+﻿namespace LeetCode.Solutions;
 
 public class LengthOfLongestSubstringSolution
 {

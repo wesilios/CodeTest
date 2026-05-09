@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-
-namespace Tests.PrefixSums;
+﻿namespace Tests.PrefixSums;
 
 public class PassingCars
 {

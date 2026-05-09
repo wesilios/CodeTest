@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace Tests.TimeComplexity;
+﻿namespace Tests.TimeComplexity;
 
 public class PermMissingElemTest
 {

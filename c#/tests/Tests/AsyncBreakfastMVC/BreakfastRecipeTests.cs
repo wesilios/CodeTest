@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AsyncBreakfastMVC.Models;
+﻿using AsyncBreakfastMVC.Models;
 using AsyncBreakfastMVC.Tasks.Services;
 using Microsoft.Extensions.Logging;
 using Moq;

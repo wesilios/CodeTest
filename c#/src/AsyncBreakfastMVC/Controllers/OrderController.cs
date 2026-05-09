@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using AsyncBreakfastMVC.Tasks.Interfaces;
+﻿using AsyncBreakfastMVC.Tasks.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AsyncBreakfastMVC.Controllers;

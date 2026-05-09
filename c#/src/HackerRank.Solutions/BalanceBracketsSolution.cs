@@ -1,9 +1,16 @@
-﻿using System.Collections.Generic;
-
-namespace HackerRank.Solutions;
+﻿namespace HackerRank.Solutions;
 
 public class BalanceBracketsSolution
 {
+    /// <summary>
+    /// Determines whether the input string has balanced brackets. Balanced brackets
+    /// are defined as each opening bracket having a corresponding closing bracket
+    /// in the correct order.
+    /// </summary>
+    /// <param name="str">The input string containing brackets.</param>
+    /// <returns>
+    /// Returns true if the brackets in the input string are balanced; otherwise, false.
+    /// </returns>
     public bool IsBalance(string str)
     {
         var dictionary = new Dictionary<char, char>

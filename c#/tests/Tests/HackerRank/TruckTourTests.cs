@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using HackerRank.Solutions.TruckTour;
+﻿using HackerRank.Solutions.TruckTour;
 
 namespace Tests.HackerRank;
 
@@ -10,9 +9,9 @@ public class TruckTourTests
     {
         var petrolPumps = new List<List<int>>
         {
-            new List<int> { 1, 5 },
-            new List<int> { 10, 3 },
-            new List<int> { 3, 4 }
+            new() { 1, 5 },
+            new() { 10, 3 },
+            new() { 3, 4 }
         };
 
         const int expectedResult = 1;

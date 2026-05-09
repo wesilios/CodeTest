@@ -2,6 +2,11 @@
 
 public class LongestPalindromicSubstringSolution
 {
+    /// <summary>
+    /// Finds the longest palindromic substring within the given string.
+    /// </summary>
+    /// <param name="str">The input string in which to search for the longest palindromic substring.</param>
+    /// <returns>The longest palindromic substring found in the input string.</returns>
     public string LongestPalindrome(string str)
     {
         var strLength = str.Length;

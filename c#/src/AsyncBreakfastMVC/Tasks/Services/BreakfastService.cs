@@ -1,9 +1,5 @@
-﻿using System;
-using System.Threading.Tasks;
-using AsyncBreakfastMVC.DataAccess;
+﻿using AsyncBreakfastMVC.DataAccess;
 using AsyncBreakfastMVC.Tasks.Interfaces;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 
 namespace AsyncBreakfastMVC.Tasks.Services;
 

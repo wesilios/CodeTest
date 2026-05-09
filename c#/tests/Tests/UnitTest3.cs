@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Tests;
+﻿namespace Tests;
 
 public class UnitTest3
 {
@@ -119,10 +116,10 @@ public class UnitTest3
         const int n = 10;
         var queries = new List<List<int>>
         {
-            new List<int> { 2, 6, 8 },
-            new List<int> { 3, 5, 7 },
-            new List<int> { 1, 8, 1 },
-            new List<int> { 5, 9, 15 }
+            new() { 2, 6, 8 },
+            new() { 3, 5, 7 },
+            new() { 1, 8, 1 },
+            new() { 5, 9, 15 }
         };
         long max = 31;
         Assert.Equal(max, ArrayManipulation(n, queries));

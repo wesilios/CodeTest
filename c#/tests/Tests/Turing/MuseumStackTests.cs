@@ -1,4 +1,3 @@
-using System.Linq;
 using Turing.Solutions;
 
 namespace Tests.Turing;

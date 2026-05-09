@@ -1,9 +1,13 @@
-﻿using System.Collections.Generic;
-
-namespace HackerRank.Solutions;
+﻿namespace HackerRank.Solutions;
 
 public class CaesarCipherSolution
 {
+    /// <summary>
+    /// Encrypts a given string using a Caesar cipher algorithm with the specified shift value.
+    /// </summary>
+    /// <param name="str">The input string to be encrypted, containing alphabetic and non-alphabetic characters.</param>
+    /// <param name="k">The shift value, representing the number of positions each letter in the string should be shifted.</param>
+    /// <returns>A new string resulting from applying the Caesar cipher on the input string with the given shift value.</returns>
     public string EncryptString(string str, int k)
     {
         const string originalAlphabet = "abcdefghijklmnopqrstuvwxyz";

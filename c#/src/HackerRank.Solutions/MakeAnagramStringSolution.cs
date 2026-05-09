@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace HackerRank.Solutions;
+﻿namespace HackerRank.Solutions;
 
 public class MakeAnagramStringSolution
 {
+    /// <summary>
+    /// Calculates the minimum number of characters that need to be removed
+    /// from two strings to make them anagrams of each other.
+    /// </summary>
+    /// <param name="s1">The first input string.</param>
+    /// <param name="s2">The second input string.</param>
+    /// <returns>The total number of character deletions required to make the two strings anagrams.</returns>
     public int GetNumberRemovedCharacterToMakeAnagramString(string s1, string s2)
     {
         var matchCount = 0;
