@@ -8,7 +8,7 @@ public class BuildPalindromeStringTests
     [InlineData("abc", "cba", "abccba")]
     [InlineData("abc", "abc", "bccb")]
     [InlineData("abch", "abc", "bchcb")]
-    [InlineData("abch", "jur", "-1")]
+    [InlineData("abch", "jur", "")]
     public void BuildPalindromeStringTest(string s1, string s2, string expectedResult)
     {
         var solution = new BuildPalindromeStringSolution();

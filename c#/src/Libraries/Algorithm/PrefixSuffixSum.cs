@@ -1,19 +1,21 @@
-﻿namespace Tests;
+﻿namespace Libraries.Algorithm;
 
 public class PrefixSuffixSum
 {
-    [Fact]
-    public void PrepareArray()
-    {
-        var a = new[] { 1, 3, 4, 2, 5, 7, 6 };
-        var b = new[] { 2, 3, 7, 5, 1, 3, 9 };
-        var prefix = PrefixSum(a);
-        var suffix = SuffixSum(a);
-        var totalCount = CountTotal(prefix, 3, 5);
-        Assert.Equal(25, MushroomMoves(b, 4, 6));
-    }
-
-    private int[] PrefixSum(int[] a)
+    /// <summary>
+    /// Computes the prefix sum array for a given input array.
+    /// The prefix sum array is constructed such that each element at index i
+    /// contains the sum of all elements from the start of the input array
+    /// up to index i.
+    /// P[i] = A[0] + A[1] + ... + A[i]
+    /// </summary>
+    /// <param name="a">
+    /// The input array for which the prefix sum array will be computed.
+    /// </param>
+    /// <returns>
+    /// An array containing the prefix sums of the input array.
+    /// </returns>
+    public int[] PrefixSum(int[] a)
     {
         var result = new int[a.Length];
         result[0] = a[0];
@@ -25,7 +27,7 @@ public class PrefixSuffixSum
         return result;
     }
 
-    private int[] SuffixSum(int[] a)
+    public int[] SuffixSum(int[] a)
     {
         var result = new int[a.Length];
         result[^1] = a[^1];
@@ -37,7 +39,7 @@ public class PrefixSuffixSum
         return result;
     }
 
-    private int CountTotal(int[] prefixSum, int x, int y)
+    public int CountTotal(int[] prefixSum, int x, int y)
     {
         if (x > y) return CountTotal(prefixSum, y, x);
         if (x < 0 || y < 0 || x > prefixSum.Length - 1 || y > prefixSum.Length - 1)
@@ -48,7 +50,7 @@ public class PrefixSuffixSum
         return prefixSum[y + 1] - prefixSum[x];
     }
 
-    private int MushroomMoves(int[] a, int spot, int moves)
+    public int MushroomMoves(int[] a, int spot, int moves)
     {
         var n = a.Length;
         if (spot < 0 || moves >= n)

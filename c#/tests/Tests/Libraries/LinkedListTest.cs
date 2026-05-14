@@ -1,4 +1,4 @@
-﻿using Libraries;
+﻿using Libraries.DataStructures;
 
 namespace Tests.Libraries;
 
