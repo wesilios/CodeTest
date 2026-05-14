@@ -19,11 +19,11 @@ public class FibonacciNumber
     }
 
     /// <summary>
-    /// Calculates the nth Fibonacci number iteratively using a dictionary for memoization.
+    /// Bottom-up Calculates the nth Fibonacci number iteratively using a dictionary for memoization.
     /// </summary>
     /// <param name="n">The position of the Fibonacci number to compute, where n is a non-negative integer.</param>
     /// <returns>The nth Fibonacci number as a long integer.</returns>
-    public long ComputeFibonacciNumber(int n)
+    public long ComputeFibonacciNumberWithBottomUp(int n)
     {
         if (n == 0) return 0;
         var memoization = new Dictionary<int, long>();

@@ -20,9 +20,9 @@ public class FibonacciNumberTests
     [InlineData(1, 1)]
     [InlineData(30, 832040)]
     [InlineData(50, 12586269025)]
-    public void ComputeFibonacciNumberTest(int n, long expectedResult)
+    public void ComputeFibonacciNumberWithBottomUpTest(int n, long expectedResult)
     {
         var fib = new FibonacciNumber();
-        Assert.Equal(expectedResult, fib.ComputeFibonacciNumber(n));
+        Assert.Equal(expectedResult, fib.ComputeFibonacciNumberWithBottomUp(n));
     }
 }
