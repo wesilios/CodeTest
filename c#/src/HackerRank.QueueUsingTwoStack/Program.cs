@@ -1,4 +1,4 @@
-﻿using Libraries;
+﻿using Libraries.DataStructures;
 
 Console.WriteLine("Queue Using Two Stacks");
 Console.WriteLine("Enter the number of queries first.");

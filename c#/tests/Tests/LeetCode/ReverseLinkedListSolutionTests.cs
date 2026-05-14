@@ -1,5 +1,5 @@
-﻿using Libraries;
-using LeetCode.Solutions;
+﻿using LeetCode.Solutions;
+using Libraries.DataStructures;
 
 namespace Tests.LeetCode;
 

@@ -1,6 +1,6 @@
-﻿using Libraries;
-using HackerRank.Solutions;
+﻿using HackerRank.Solutions;
 using LeetCode.Solutions;
+using Libraries.DataStructures;
 
 namespace Tests.LeetCode;
 

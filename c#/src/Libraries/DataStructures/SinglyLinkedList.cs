@@ -1,4 +1,4 @@
-﻿namespace Libraries;
+﻿namespace Libraries.DataStructures;
 
 public class SinglyLinkedList<T>
 {

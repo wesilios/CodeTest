@@ -2,63 +2,40 @@
 
 public class PassingCars
 {
-    [Fact]
-    public void Test()
+    /// <summary>
+    /// Counts the total number of cars that can pass each other based on the given array of car directions and
+    /// pairs of indices representing the ranges of interest.
+    /// </summary>
+    /// <param name="directions">
+    /// An array representing car directions, where 0 typically indicates a car traveling east and 1 indicates a car traveling west.
+    /// </param>
+    /// <param name="carPairs">
+    /// A 2D array of integer pairs, where each pair specifies a starting and ending index
+    /// that defines the range to analyze passing cars.
+    /// </param>
+    /// <returns>
+    /// The sum of passing cars for all specified ranges in the array.
+    /// </returns>
+    public int CountPassingCars(int[] directions, int[][] carPairs)
     {
-        var a = new[] { 0, 1, 0, 1, 1 };
-        var carPairs = new[]
+        var passingCarsCount = 0;
+        foreach (var carPair in carPairs)
         {
-            new[] { 0, 1 },
-            new[] { 0, 3 },
-            new[] { 0, 4 },
-            new[] { 2, 3 },
-            new[] { 2, 4 }
-        };
-        Assert.Equal(5, Solution(a, carPairs));
-    }
+            var eastboundCars = 0;
 
-    private int Solution(int[] a, int[][] carPairs)
-    {
-        var prefix = new PrefixSuffixSum();
-        var prefixSum = prefix.PrefixSum(a);
-        return carPairs.Sum(carPair =>
-            prefix.CountTotal(prefixSum, carPair[0], carPair[1]));
-    }
-}
-
-internal class PrefixSuffixSum
-{
-    public int[] PrefixSum(int[] a)
-    {
-        var result = new int[a.Length + 1];
-        result[0] = a[0];
-        for (var i = 1; i < a.Length + 1; i++)
-        {
-            result[i] = result[i - 1] + a[i - 1];
+            for (var i = carPair[0]; i <= carPair[1]; i++)
+            {
+                if (directions[i] == 0)
+                {
+                    eastboundCars++;
+                }
+                else
+                {
+                    passingCarsCount += eastboundCars;
+                }
+            }
         }
 
-        return result;
-    }
-
-    public int[] SuffixSum(int[] a)
-    {
-        var result = new int[a.Length];
-        result[^1] = a[^1];
-        for (var i = a.Length - 2; i >= 0; i--)
-        {
-            result[i] = result[i + 1] + a[i + 1];
-        }
-
-        return result;
-    }
-
-    public int CountTotal(int[] prefixSum, int x, int y)
-    {
-        if (x > y || x < 0 || x > prefixSum.Length - 1)
-        {
-            throw new InvalidOperationException();
-        }
-
-        return prefixSum[y + 1] - prefixSum[x];
+        return passingCarsCount;
     }
 }
