@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Tests.CountingElements;
+﻿namespace Tests.CountingElements;
 
 public class MaxCountersTests
 {

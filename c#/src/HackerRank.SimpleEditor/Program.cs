@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 
 Console.WriteLine("Simple Text Editor");
 Console.WriteLine("Enter the number of operations first.");

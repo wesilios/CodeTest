@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace AsyncBreakfastMVC.Models;
+﻿namespace AsyncBreakfastMVC.Models;
 
 public class TaskActionViewModel
 {

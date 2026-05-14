@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace Tests.OrangeLogic;
+﻿namespace Tests.OrangeLogic;
 
 public class TaskThree
 {

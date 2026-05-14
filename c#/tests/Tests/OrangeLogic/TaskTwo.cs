@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Tests.OrangeLogic;
+﻿namespace Tests.OrangeLogic;
 
 public class TaskTwo
 {

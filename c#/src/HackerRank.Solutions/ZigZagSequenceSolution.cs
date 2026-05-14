@@ -1,9 +1,19 @@
-﻿using System.Linq;
-
-namespace HackerRank.Solutions;
+﻿namespace HackerRank.Solutions;
 
 public class ZigZagSequenceSolution
 {
+    /// <summary>
+    /// Rearranges the input array into a zig-zag sequence where the smallest elements
+    /// are on the left, the largest elements are in the middle, and the remaining elements
+    /// are in descending order on the right.
+    /// </summary>
+    /// <param name="input">
+    /// An array of integers to be rearranged into a zig-zag sequence.
+    /// The array should have at least one element and must be sortable.
+    /// </param>
+    /// <returns>
+    /// A new integer array representing the zig-zag sequence prepared from the input array.
+    /// </returns>
     public int[] FindZigZagSequence(int[] input)
     {
         input = input.OrderBy(c => c).ToArray();

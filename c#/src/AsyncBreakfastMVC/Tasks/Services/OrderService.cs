@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using AsyncBreakfastMVC.DataAccess;
+﻿using AsyncBreakfastMVC.DataAccess;
 using AsyncBreakfastMVC.Tasks.Interfaces;
 using AsyncBreakfastMVC.Tasks.Models;
 

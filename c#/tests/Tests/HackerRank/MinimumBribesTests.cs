@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using HackerRank.Solutions;
+﻿using HackerRank.Solutions;
 
 namespace Tests.HackerRank;
 

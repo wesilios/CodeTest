@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using AsyncBreakfastMVC.Tasks.Models;
+﻿using AsyncBreakfastMVC.Tasks.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace AsyncBreakfastMVC.DataAccess.Repositories;

@@ -1,5 +1,4 @@
-﻿using System;
-using LeetCode.Solutions;
+﻿using LeetCode.Solutions;
 
 namespace Tests.LeetCode;
 

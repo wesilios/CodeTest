@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace AsyncBreakfastMVC.Tasks.Models;
+﻿namespace AsyncBreakfastMVC.Tasks.Models;
 
 public class Bacon : BaseModel<Guid>
 {

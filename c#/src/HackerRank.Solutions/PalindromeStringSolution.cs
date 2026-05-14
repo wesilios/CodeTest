@@ -1,11 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 
 namespace HackerRank.Solutions;
 
 public class PalindromeStringSolution
 {
+    /// <summary>
+    /// Determines the index of a character in the input string that can be removed to make the string a palindrome.
+    /// If the string is already a palindrome, the method returns -1. If no such index exists, the method also returns -1.
+    /// </summary>
+    /// <param name="str">The input string to be evaluated.</param>
+    /// <returns>
+    /// An integer representing the zero-based index of the character that can be removed to form a palindrome.
+    /// Returns -1 if the input is already a palindrome or if no such index exists.
+    /// </returns>
     public int FindPalindromeIndex(string str)
     {
         var result = -1;
@@ -35,6 +42,15 @@ public class PalindromeStringSolution
         return result;
     }
 
+    /// <summary>
+    /// Determines whether the input string can be rearranged to form a palindrome.
+    /// If possible, returns the rearranged palindrome string. If not, returns "None".
+    /// </summary>
+    /// <param name="str">The input string to be evaluated.</param>
+    /// <returns>
+    /// A string representing the rearranged palindrome if possible,
+    /// or "None" if the string cannot be arranged as a palindrome.
+    /// </returns>
     public string CheckCanArrangeToPalindromeString(string str)
     {
         var countChars = new Dictionary<char, int>();

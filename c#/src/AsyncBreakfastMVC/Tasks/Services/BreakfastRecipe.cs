@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using AsyncBreakfastMVC.Models;
+﻿using AsyncBreakfastMVC.Models;
 using AsyncBreakfastMVC.Tasks.Interfaces;
 using AsyncBreakfastMVC.Tasks.Models;
-using Microsoft.Extensions.Logging;
 
 namespace AsyncBreakfastMVC.Tasks.Services;
 

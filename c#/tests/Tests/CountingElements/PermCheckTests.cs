@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Tests.CountingElements;
+﻿namespace Tests.CountingElements;
 
 public class PermCheckTests
 {
