@@ -60,13 +60,7 @@ Only the two print operations produce output.
 From the repository root:
 
 ```bash
-bash dotnet run --project HackerRank.QueueUsingTwoStack
-```
-
-To run with the sample input:
-
-```bash
-bash dotnet run --project HackerRank.QueueUsingTwoStack < HackerRank.QueueUsingTwoStack/input.txt
+dotnet run --project src/HackerRank.QueueUsingTwoStack
 ```
 
 ## Complexity
