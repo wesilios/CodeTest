@@ -63,13 +63,7 @@ Starting text: empty string `""`
 From the repository root:
 
 ```bash
-dotnet run --project HackerRank.SimpleEditor
-```
-
-To run with the sample input:
-
-```bash
-dotnet run --project HackerRank.SimpleEditor < HackerRank.SimpleEditor/input.txt
+dotnet run --project src/HackerRank.SimpleEditor
 ```
 
 ## Approach
